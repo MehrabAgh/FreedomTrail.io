@@ -27,7 +27,8 @@ public class HealthApi : MonoBehaviour
             }
             if (gameObject.tag == "Enemy")
             {
-                Destroy(gameObject);
+                Instantiate(ScoreManager.instance.CoinObj, transform.position, transform.rotation);
+                Destroy(gameObject);                
             }
         }
     }

@@ -4,26 +4,32 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    private Transform Target;
+    public Transform Target ,heliGun;
     public Transform[] PivGun;
     public GameObject Ammo, Ammo2;
     private bool waiting;
     public float Power = 1500, DelayStart;
     private float Delay;
-
     private void Start()
     {
         Target = FindObjectOfType<PlayerMovement>().transform;
     }
     private void Update()
     {
-        TargetLook();
+        if (gameObject.name != "heli")
+        {
+            TargetLook(Target,transform);
+        }
+        else
+        {
+            TargetLook(Target,heliGun);
+        }
         AttackShoot();
     }
    
-    public void TargetLook()
+    public void TargetLook(Transform Target , Transform piv)
     {
-        transform.LookAt(Target);
+       piv.transform.LookAt(Target);
     }
     public void AttackShoot()
     {

@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private float startingPosition;
     Vector3 rot ;
 
-    private float _sensitivity = 1f;
+    public float _sensitivity = 0.7f;
     private Vector3 _mouseReference;
     private Vector3 _mouseOffset;
     private Vector3 _rotation = Vector3.zero;
@@ -20,36 +20,39 @@ public class PlayerMovement : MonoBehaviour
     {
         Gun = transform.GetChild(0);
      
-    }
+    } 
     private void Update()
     {
-        if (_isRotating)
+        if (Input.GetMouseButton(0))
         {
-            // offset
-            _mouseOffset = (Input.mousePosition - _mouseReference);
+            if (_isRotating) {
+                // offset
+                _mouseOffset = (Input.mousePosition - _mouseReference);
 
-            // apply rotation
-            _rotation.y = (_mouseOffset.x ) * _sensitivity;
-            _rotation.z = -(_mouseOffset.y) * _sensitivity;
-            // rotate
-            transform.eulerAngles += _rotation;
+                // apply rotation
+                _rotation.y = (_mouseOffset.x) * _sensitivity;
+                _rotation.z = -(_mouseOffset.y) * _sensitivity;                
+                // rotate
+                transform.eulerAngles += _rotation;
 
-            // store new mouse position
+                var x = transform.eulerAngles;
+                float angle = x.z;
+                angle = (angle > 180) ? angle - 360 : angle;
+                x.z = Mathf.Clamp(angle, -19, 10);               
+                transform.eulerAngles = x;
+                
+                // store new mouse position
+                _mouseReference = Input.mousePosition;
+            }
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            _isRotating = true;
             _mouseReference = Input.mousePosition;
         }
-        if (Input.touchCount > 0)
+        if (Input.GetMouseButtonUp(0))
         {
-            Touch touch = Input.GetTouch(0);          
-            switch (touch.phase)
-            {
-                case TouchPhase.Began:
-                    _isRotating = true;
-                    _mouseReference = Input.mousePosition;
-                    break;               
-                case TouchPhase.Ended:
-                    _isRotating = false;
-                    break;
-            }
-        }       
+            _isRotating = false;
+        }
     }
 }

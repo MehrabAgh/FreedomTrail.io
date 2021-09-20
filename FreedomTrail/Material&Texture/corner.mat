@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_AmmoEnemy
+  m_Name: corner
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _GLOSSYREFLECTIONS_OFF
   m_LightmapFlags: 4
@@ -105,12 +105,12 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.6320754, g: 0.12820399, b: 0.12820399, a: 1}
-    - _Color: {r: 0.6313726, g: 0.18438117, b: 0.12941176, a: 1}
-    - _EmissionColor: {r: 50.19608, g: 6.5254903, b: 6.5254903, a: 1}
+    - _BaseColor: {r: 0.13725491, g: 0.48627454, b: 0.5764706, a: 1}
+    - _Color: {r: 0.13725491, g: 0.4862745, b: 0.5764706, a: 1}
+    - _EmissionColor: {r: 0.01706962, g: 0.2014215, b: 0.29018354, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &7896674338439733925
+--- !u!114 &5703514005814427688
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
