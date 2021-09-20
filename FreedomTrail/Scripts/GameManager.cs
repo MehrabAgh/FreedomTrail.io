@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         {
             //Gameover
             PlayerPrefs.SetInt("Coin", ScoreManager.instance.Coin);
-            Time.timeScale = 0;
+           // Time.timeScale = 0;
         }
         else
         {            

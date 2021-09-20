@@ -209,7 +209,6 @@ GameObject:
   - component: {fileID: 5513466281520283675}
   - component: {fileID: 5513466281520283679}
   - component: {fileID: 5513466281520283674}
-  - component: {fileID: 5513466281520283677}
   - component: {fileID: 5513466281520283678}
   m_Layer: 0
   m_Name: Enemy
@@ -295,6 +294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3511ac6c2a2246746956e934b6e16903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+  heliGun: {fileID: 0}
   PivGun:
   - {fileID: 5513466282795448392}
   Ammo: {fileID: 6867022844830627100, guid: b298b88af93d6814f9fd8a02d83c745b, type: 3}
@@ -314,20 +315,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2017038, y: 1.3340418, z: 1}
   m_Center: {x: 0.1008511, y: 0.1670206, z: 0}
---- !u!114 &5513466281520283677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5513466281520283672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91d120ae4934647499dec3c1342b747d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 30
-  healthBar: {fileID: 5513466282450049152}
 --- !u!54 &5513466281520283678
 Rigidbody:
   m_ObjectHideFlags: 0

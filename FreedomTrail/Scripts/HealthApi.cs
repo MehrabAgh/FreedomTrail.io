@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HealthApi : MonoBehaviour
@@ -23,6 +24,7 @@ public class HealthApi : MonoBehaviour
             if (gameObject.tag == "Player")
             {
                 //PlayerDeath
+                SceneManager.LoadScene("MehrabSceneDemo02");
                 print("! GameOver !");
             }
             if (gameObject.tag == "Enemy")

@@ -126,7 +126,6 @@ GameObject:
   - component: {fileID: 5371923921147845218}
   - component: {fileID: 5371923921147845229}
   - component: {fileID: 5371923921147845228}
-  - component: {fileID: 5371923921147845219}
   - component: {fileID: 5371923921147845217}
   - component: {fileID: 5371923921147845231}
   - component: {fileID: 5371923921147845230}
@@ -203,20 +202,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5371923921147845219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5371923921147845225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91d120ae4934647499dec3c1342b747d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 100
-  healthBar: {fileID: 0}
 --- !u!114 &5371923921147845217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +232,7 @@ MonoBehaviour:
   x: 0
   y: 0
   rotatespeed: 10
+  _sensitivity: 0.7
 --- !u!65 &5371923921147845230
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6155,6 +6141,7 @@ GameObject:
   - component: {fileID: 5371923921536389127}
   - component: {fileID: 5371923921536389125}
   - component: {fileID: 5371923921536389129}
+  - component: {fileID: 8459799116700514937}
   m_Layer: 0
   m_Name: Player Car
   m_TagString: Player
@@ -6292,6 +6279,20 @@ MonoBehaviour:
   maxRolloffDistance: 500
   dopplerLevel: 1
   useDoppler: 1
+--- !u!114 &8459799116700514937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5371923921529857459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91d120ae4934647499dec3c1342b747d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 30
+  healthBar: {fileID: 0}
 --- !u!1 &5371923921529857517
 GameObject:
   m_ObjectHideFlags: 0

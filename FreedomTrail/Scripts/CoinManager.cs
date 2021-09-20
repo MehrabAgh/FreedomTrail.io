@@ -6,7 +6,8 @@ public class CoinManager : MonoBehaviour
 {
     private void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, GameManager.ins.Player.transform.position,Time.deltaTime*10f);
+        transform.SetParent(GameManager.ins.Player.transform);
+        transform.position = Vector3.Lerp(transform.position, GameManager.ins.Player.transform.position,Time.deltaTime*3f);
     }
 
     private void OnTriggerEnter(Collider other)
