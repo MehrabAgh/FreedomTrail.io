@@ -175,9 +175,10 @@ GameObject:
   - component: {fileID: 1712134007371748609}
   - component: {fileID: 2688275493571775955}
   - component: {fileID: 2688275493571775952}
+  - component: {fileID: 8194642622634777720}
   m_Layer: 0
   m_Name: heli
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,7 +190,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1946629396664440269}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.00000035762784}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 8, z: 207.27}
   m_LocalScale: {x: 1.85, y: 1.85, z: 1.85}
   m_Children:
@@ -268,11 +269,25 @@ MonoBehaviour:
   Target: {fileID: 0}
   heliGun: {fileID: 3172502136542512621}
   PivGun:
-  - {fileID: 0}
+  - {fileID: 3172502136542512621}
   Ammo: {fileID: 6867022844830627100, guid: b298b88af93d6814f9fd8a02d83c745b, type: 3}
   Ammo2: {fileID: 0}
   Power: 10000
   DelayStart: 0.5
+--- !u!136 &8194642622634777720
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946629396664440269}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 5.19
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.54, z: -0.82}
 --- !u!1 &2499394967766089908
 GameObject:
   m_ObjectHideFlags: 0

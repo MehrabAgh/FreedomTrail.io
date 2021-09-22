@@ -236,9 +236,10 @@ GameObject:
   - component: {fileID: 7966284400403475812}
   - component: {fileID: 7782591877778799800}
   - component: {fileID: 7859261883209923419}
+  - component: {fileID: 3891888477858587026}
   m_Layer: 0
   m_Name: Enemy Car
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -398,8 +399,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d120ae4934647499dec3c1342b747d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 30
+  MaxHealth: 20
   healthBar: {fileID: 9043979096448473092}
+--- !u!114 &3891888477858587026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966284400396900574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c32b37b4e7fbc34aa60a5f1209b36ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7966284400396900576
 GameObject:
   m_ObjectHideFlags: 0
@@ -6324,6 +6337,14 @@ PrefabInstance:
     - target: {fileID: 5513466281520283678, guid: 088f82fdf8cab0349a5902b1a8b07e8a, type: 3}
       propertyPath: m_IsKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5513466281520283679, guid: 088f82fdf8cab0349a5902b1a8b07e8a, type: 3}
+      propertyPath: Power
+      value: 8000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5513466281520283679, guid: 088f82fdf8cab0349a5902b1a8b07e8a, type: 3}
+      propertyPath: DelayStart
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5513466281953590134, guid: 088f82fdf8cab0349a5902b1a8b07e8a, type: 3}
       propertyPath: m_AnchorMax.x

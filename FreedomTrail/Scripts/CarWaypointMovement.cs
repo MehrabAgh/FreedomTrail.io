@@ -5,21 +5,30 @@ using UnityEngine;
 public class CarWaypointMovement : MonoBehaviour
 {
 
-    public CarAIControl car;
+    private CarAIControl car;
     private Transform carObj;
+    public Transform waypointHolder;
     public Transform[] waypoints;
     private int curWpIndx = 0;
     private float dist = 0.5f;
     private bool pathFinished = false;
 
+   /* public static Transform leftTarget, rightTarget;
+    private void Awake()
+    {
+        leftTarget = GameObject.Find("left follow target").transform;
+        rightTarget = GameObject.Find("right follow target").transform;
+    }*/
+
     private void Start()
     {
-        
+        car = GetComponent<CarAIControl>();
         carObj = car.gameObject.transform;
-        waypoints = new Transform[transform.childCount];
-        for (int i = 0; i < transform.childCount; i++)
+        waypointHolder = GameObject.Find("WayPointHolder").transform;
+        waypoints = new Transform[waypointHolder.transform.childCount];
+        for (int i = 0; i < waypointHolder.transform.childCount; i++)
         {
-            waypoints[i] = transform.GetChild(i);
+            waypoints[i] = waypointHolder.transform.GetChild(i);
         }
     }
 
