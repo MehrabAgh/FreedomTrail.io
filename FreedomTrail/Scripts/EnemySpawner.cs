@@ -18,7 +18,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        print("alive enemies: " + aliveEnemies);
         spawnAllowed = aliveEnemies < 2; // if there's < 2 enemies alive we can spawn new ones
     }
 
