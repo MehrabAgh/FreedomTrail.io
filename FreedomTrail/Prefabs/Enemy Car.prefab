@@ -6340,6 +6340,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5513466281520283679, guid: 088f82fdf8cab0349a5902b1a8b07e8a, type: 3}
+      propertyPath: Ammo
+      value: 
+      objectReference: {fileID: 3881412917815023731, guid: f201a64ce7477ae4cab5d9997db815f6, type: 3}
+    - target: {fileID: 5513466281520283679, guid: 088f82fdf8cab0349a5902b1a8b07e8a, type: 3}
       propertyPath: Power
       value: 8000
       objectReference: {fileID: 0}

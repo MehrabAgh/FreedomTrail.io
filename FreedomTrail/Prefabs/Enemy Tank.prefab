@@ -7353,7 +7353,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9038722123519507006}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000053644175}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 2.4606285, y: 0, z: 211.73474}
   m_LocalScale: {x: 1.525, y: 1.525, z: 1.525}
   m_Children:
@@ -7811,6 +7811,14 @@ PrefabInstance:
     - target: {fileID: 5513466281520283678, guid: 088f82fdf8cab0349a5902b1a8b07e8a, type: 3}
       propertyPath: m_IsKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5513466281520283679, guid: 088f82fdf8cab0349a5902b1a8b07e8a, type: 3}
+      propertyPath: Ammo
+      value: 
+      objectReference: {fileID: 3881412917815023731, guid: f201a64ce7477ae4cab5d9997db815f6, type: 3}
+    - target: {fileID: 5513466281520283679, guid: 088f82fdf8cab0349a5902b1a8b07e8a, type: 3}
+      propertyPath: Power
+      value: 8000
       objectReference: {fileID: 0}
     - target: {fileID: 5513466281520283679, guid: 088f82fdf8cab0349a5902b1a8b07e8a, type: 3}
       propertyPath: heliGun

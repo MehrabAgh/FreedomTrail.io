@@ -270,7 +270,7 @@ MonoBehaviour:
   heliGun: {fileID: 3172502136542512621}
   PivGun:
   - {fileID: 3172502136542512621}
-  Ammo: {fileID: 6867022844830627100, guid: b298b88af93d6814f9fd8a02d83c745b, type: 3}
+  Ammo: {fileID: 3881412917815023731, guid: f201a64ce7477ae4cab5d9997db815f6, type: 3}
   Ammo2: {fileID: 0}
   Power: 10000
   DelayStart: 0.5
