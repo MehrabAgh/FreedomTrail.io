@@ -235,10 +235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8fe4f6259e75014ebaaf2400eadb0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   speedMove: 3
   speedRotate: 3
-  height: 15
+  height: 8
   distance: 25
 --- !u!114 &2688275493571775955
 MonoBehaviour:
@@ -254,6 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 50
   healthBar: {fileID: 2688275492096097154}
+  explosionFX: {fileID: 3951502073931553044, guid: 00ef468745501cb48ba85d3d6b3f3404, type: 3}
 --- !u!114 &2688275493571775952
 MonoBehaviour:
   m_ObjectHideFlags: 0

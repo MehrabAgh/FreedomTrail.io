@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AmmoLife : MonoBehaviour
 {
-    public int Damge;
+    public int lifeTime = 2;
     private void Start()
     {
-        Destroy(this.gameObject, 2);
+        Destroy(this.gameObject, lifeTime);
     }
 }

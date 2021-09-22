@@ -13,6 +13,7 @@ public class EnemyManager : MonoBehaviour
     private void Start()
     {
         Target = FindObjectOfType<PlayerMovement>().transform;
+        EnemySpawner.aliveEnemies++;
     }
     private void Update()
     {

@@ -7503,6 +7503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 20
   healthBar: {fileID: 2242243931099731057}
+  explosionFX: {fileID: 3951502073931553044, guid: 00ef468745501cb48ba85d3d6b3f3404, type: 3}
 --- !u!114 &1393532934703264854
 MonoBehaviour:
   m_ObjectHideFlags: 0

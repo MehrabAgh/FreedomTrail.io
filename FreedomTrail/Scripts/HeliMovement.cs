@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class HeliMovement : MonoBehaviour
 {
-    public Transform target;
+    private Transform target;
     public float speedMove, speedRotate;
     private Vector3 offset;
     public float height = 15, distance = 20;
 
     private void Start()
     {
-        offset = transform.position - target.position;
-       // offset = new Vector3(0,height,0);
+        target = GameObject.Find("Player Car").transform;
+       // offset = transform.position - target.position;
+        offset = new Vector3(0,height, distance);
     }
 
     private void Update()
