@@ -190,7 +190,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1946629396664440269}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.00000035762784}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 8, z: 207.27}
   m_LocalScale: {x: 1.85, y: 1.85, z: 1.85}
   m_Children:
@@ -235,10 +235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8fe4f6259e75014ebaaf2400eadb0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   speedMove: 3
   speedRotate: 3
-  height: 15
+  height: 8
   distance: 25
 --- !u!114 &2688275493571775955
 MonoBehaviour:
@@ -254,6 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 50
   healthBar: {fileID: 2688275492096097154}
+  explosionFX: {fileID: 0}
 --- !u!114 &2688275493571775952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,8 +269,8 @@ MonoBehaviour:
   Target: {fileID: 0}
   heliGun: {fileID: 3172502136542512621}
   PivGun:
-  - {fileID: 0}
-  Ammo: {fileID: 6867022844830627100, guid: b298b88af93d6814f9fd8a02d83c745b, type: 3}
+  - {fileID: 3172502136542512621}
+  Ammo: {fileID: 3881412917815023731, guid: f201a64ce7477ae4cab5d9997db815f6, type: 3}
   Ammo2: {fileID: 0}
   Power: 10000
   DelayStart: 0.5
