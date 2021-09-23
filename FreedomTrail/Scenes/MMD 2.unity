@@ -3155,6 +3155,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 919132147567951402, guid: e833d458df54d7f4dac17b4ed46bbfce, type: 3}
+      propertyPath: gunStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5371923921529633171, guid: e833d458df54d7f4dac17b4ed46bbfce, type: 3}
       propertyPath: m_RootOrder
       value: 4

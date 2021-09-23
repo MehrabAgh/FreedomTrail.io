@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Bone.LookAt(pivBone);
         Bone.rotation = Bone.rotation * Quaternion.Euler(Offset);
-        print(rot);
+       // print(rot);
         if (Input.GetMouseButton(0))
         {
             if (_isRotating) {

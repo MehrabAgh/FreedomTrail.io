@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 8520743654016772769}
   m_Layer: 0
   m_Name: heli
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 50
   healthBar: {fileID: 2688275492096097154}
-  explosionFX: {fileID: 0}
+  explosionFX: {fileID: 3951502073931553044, guid: 00ef468745501cb48ba85d3d6b3f3404, type: 3}
 --- !u!114 &2688275493571775952
 MonoBehaviour:
   m_ObjectHideFlags: 0
