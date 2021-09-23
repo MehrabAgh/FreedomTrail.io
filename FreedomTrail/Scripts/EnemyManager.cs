@@ -10,24 +10,27 @@ public class EnemyManager : MonoBehaviour
     private bool waiting;
     public float Power = 1500, DelayStart;
     private float Delay;
+    public Transform Bone;
     private void Start()
     {
         Target = FindObjectOfType<PlayerMovement>().transform;
-        EnemySpawner.aliveEnemies++;
     }
-    private void Update()
+    private void LateUpdate()
     {
-        if (gameObject.name != "heli")
+        if (gameObject.name == "heli")
         {
-            TargetLook(Target,transform);
+            TargetLook(Target, heliGun); 
         }
         else
         {
-            TargetLook(Target,heliGun);
+            TargetLook(Target, Bone);
         }
+     
+    }
+    private void Update()
+    {
         AttackShoot();
     }
-   
     public void TargetLook(Transform Target , Transform piv)
     {
        piv.transform.LookAt(Target);
@@ -47,7 +50,7 @@ public class EnemyManager : MonoBehaviour
             for (int i = 0; i < PivGun.Length; i++)
             {
                 Ammo2 = Instantiate(Ammo, PivGun[i].position, PivGun[i].rotation);
-                Ammo2.GetComponent<Rigidbody>().AddForce(transform.forward * Power);
+                Ammo2.GetComponent<Rigidbody>().AddForce(Ammo2.transform.forward * Power);
             }
             Delay = DelayStart;
             waiting = true;

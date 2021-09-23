@@ -8,7 +8,7 @@ public class CameraFollow : MonoBehaviour
     public float speedMove, speedRotate;
     private void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime* speedMove);
+        transform.position = target.position;
         transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, Time.deltaTime * speedRotate);
     }
 }

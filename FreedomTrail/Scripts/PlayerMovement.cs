@@ -3,52 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
-{
-    public float speed;
-    private Transform Gun;
-    public float x , y;
-    public float rotatespeed = 10f;
-    private float startingPosition;
-    Vector3 rot ;
-
-    public float _sensitivity = 0.7f;
-    private Vector3 _mouseReference;
+{  
+    public Transform pivBone,Bone ;
+    public float _sensitivity = 0.7f , sens = 0.2f;
+    private Vector3 _mouseReference ;
     private Vector3 _mouseOffset;
-    private Vector3 _rotation = Vector3.zero;
+    private Vector3 _rotation = Vector3.zero , rot = Vector3.zero;
     private bool _isRotating;
-    private void Start()
+    public Vector3 Offset;
+    private void LateUpdate()
     {
-        Gun = transform.GetChild(0);
-     
-    } 
-    private void Update()
-    {
+        Bone.LookAt(pivBone);
+        Bone.rotation = Bone.rotation * Quaternion.Euler(Offset);
+        print(rot);
         if (Input.GetMouseButton(0))
         {
             if (_isRotating) {
                 // offset
-                _mouseOffset = (Input.mousePosition - _mouseReference);
-
+                _mouseOffset = (Input.mousePosition - _mouseReference);          
                 // apply rotation
                 _rotation.y = (_mouseOffset.x) * _sensitivity;
-                _rotation.z = -(_mouseOffset.y) * _sensitivity;                
+                _rotation.z = -(_mouseOffset.y) * _sensitivity;
+                rot.y = (_mouseOffset.y) * sens;
                 // rotate
-                transform.eulerAngles += _rotation;
-
+                transform.eulerAngles += _rotation;               
                 var x = transform.eulerAngles;
-                float angle = x.z;
+                /*
+                var xx = pivBone.localPosition;
+                float angle = xx.z;
                 angle = (angle > 180) ? angle - 360 : angle;
-                x.z = Mathf.Clamp(angle, -19, 10);               
-                transform.eulerAngles = x;
-                
+                xx.z = Mathf.Clamp(angle, -19, 10);
+                */
+                var rr = rot;
+                rr.y = Mathf.Clamp(rr.y, -0.1f, 0.4f);
+                rot = rr;
+                pivBone.localPosition += rot;
+
+                transform.eulerAngles = new Vector3(0,x.y,0);          
                 // store new mouse position
                 _mouseReference = Input.mousePosition;
+                
             }
         }
         if (Input.GetMouseButtonDown(0))
         {
             _isRotating = true;
             _mouseReference = Input.mousePosition;
+          
         }
         if (Input.GetMouseButtonUp(0))
         {

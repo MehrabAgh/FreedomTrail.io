@@ -16,6 +16,6 @@ public class CoinManager : MonoBehaviour
         {
             ScoreManager.instance.Coin++;
             Destroy(gameObject);
-        }
+        }       
     }
 }
