@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,7 +9,6 @@ public class HealthApi : MonoBehaviour
     public float MaxHealth;
     private float health;
     public Slider healthBar;
-    public GameObject explosionFX;
 
     private void Start()
     {
@@ -30,9 +30,7 @@ public class HealthApi : MonoBehaviour
             if (gameObject.tag == "Enemy")
             {
                 Instantiate(ScoreManager.instance.CoinObj, transform.position, transform.rotation);
-                Instantiate(explosionFX, transform.position, transform.rotation);
-                Destroy(gameObject);    
-                EnemySpawner.aliveEnemies--;            
+                Destroy(gameObject);                
             }
         }
     }

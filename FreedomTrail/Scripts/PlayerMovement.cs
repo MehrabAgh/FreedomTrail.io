@@ -5,17 +5,18 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {  
     public Transform pivBone,Bone ;
-    public float _sensitivity = 0.7f , sens = 0.2f;
+    public float _sensitivity = 0.7f , sens = 0.2f , sensCamY = 12;
     private Vector3 _mouseReference ;
     private Vector3 _mouseOffset;
     private Vector3 _rotation = Vector3.zero , rot = Vector3.zero;
     private bool _isRotating;
     public Vector3 Offset;
+    public GameObject Cross; 
     private void LateUpdate()
     {
         Bone.LookAt(pivBone);
-        Bone.rotation = Bone.rotation * Quaternion.Euler(Offset);
-       // print(rot);
+        Bone.rotation = Bone.rotation * Quaternion.Euler(Offset);        
+        
         if (Input.GetMouseButton(0))
         {
             if (_isRotating) {
@@ -34,9 +35,11 @@ public class PlayerMovement : MonoBehaviour
                 angle = (angle > 180) ? angle - 360 : angle;
                 xx.z = Mathf.Clamp(angle, -19, 10);
                 */
-                var rr = rot;
-                rr.y = Mathf.Clamp(rr.y, -0.1f, 0.4f);
-                rot = rr;
+                var c = Cross.transform.localEulerAngles;
+                c.x += -(rot.y * sensCamY);
+
+                Cross.transform.localEulerAngles = c;
+
                 pivBone.localPosition += rot;
 
                 transform.eulerAngles = new Vector3(0,x.y,0);          

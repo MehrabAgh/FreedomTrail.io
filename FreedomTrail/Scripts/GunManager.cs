@@ -17,6 +17,7 @@ public abstract class GunFuncManage : MonoBehaviour
 
 public class GunManager : GunFuncManage
 {
+    public PlayerMovement player;
     private GameObject SubAmmo;
     private float SubtimeReload;
     //
@@ -30,7 +31,7 @@ public class GunManager : GunFuncManage
         {
             AmmoCount = MaxAmmo;
             TimeReload = SubtimeReload;
-        }
+        }   
     }
     public override void FindPivot()
     {
@@ -44,7 +45,9 @@ public class GunManager : GunFuncManage
             SubAmmo = Instantiate(Ammo, pivot[i].position, pivot[i].rotation);
             SubAmmo.GetComponent<Rigidbody>().AddForce(SubAmmo.transform.forward * Power);
             AmmoCount--;
+            //player.GetComponent<Animator>().SetLayerWeight(1, 1);
         }
+       
     }
     //  
     private void Start()
@@ -58,10 +61,12 @@ public class GunManager : GunFuncManage
         if (AmmoCount > 0)
         {
             Shoot();
+           
         }
         else if (AmmoCount <= 0)
         {
             Reload();
+          
         }
     }
 }
