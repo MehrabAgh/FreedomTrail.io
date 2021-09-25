@@ -162,6 +162,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1221404514681855227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5117245428607133770}
+  m_Layer: 0
+  m_Name: piv
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5117245428607133770
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221404514681855227}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3172502136542512621}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1946629396664440269
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +208,7 @@ GameObject:
   - component: {fileID: 8520743654016772769}
   m_Layer: 0
   m_Name: heli
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,7 +220,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1946629396664440269}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.00000035762784}
   m_LocalPosition: {x: 0, y: 8, z: 207.27}
   m_LocalScale: {x: 1.85, y: 1.85, z: 1.85}
   m_Children:
@@ -235,9 +265,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8fe4f6259e75014ebaaf2400eadb0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   speedMove: 3
   speedRotate: 3
-  height: 8
+  height: 15
   distance: 25
 --- !u!114 &2688275493571775955
 MonoBehaviour:
@@ -253,7 +284,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 50
   healthBar: {fileID: 2688275492096097154}
-  explosionFX: {fileID: 3951502073931553044, guid: 00ef468745501cb48ba85d3d6b3f3404, type: 3}
 --- !u!114 &2688275493571775952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,8 +299,8 @@ MonoBehaviour:
   Target: {fileID: 0}
   heliGun: {fileID: 3172502136542512621}
   PivGun:
-  - {fileID: 3172502136542512621}
-  Ammo: {fileID: 3881412917815023731, guid: f201a64ce7477ae4cab5d9997db815f6, type: 3}
+  - {fileID: 0}
+  Ammo: {fileID: 6867022844830627100, guid: b298b88af93d6814f9fd8a02d83c745b, type: 3}
   Ammo2: {fileID: 0}
   Power: 10000
   DelayStart: 0.5
@@ -936,7 +966,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.13665639, z: 1.1813025}
   m_LocalScale: {x: 5.6353297, y: 5.6353292, z: 5.6353297}
-  m_Children: []
+  m_Children:
+  - {fileID: 5117245428607133770}
   m_Father: {fileID: 1173189575455281015}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

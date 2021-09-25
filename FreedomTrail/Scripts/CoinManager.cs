@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class CoinManager : MonoBehaviour
 {
+    bool c;
     private void Update()
     {
-        transform.SetParent(GameManager.ins.Player.transform);
-        transform.position = Vector3.Lerp(transform.position, GameManager.ins.Player.transform.position,Time.deltaTime*3f);
+        if (gameObject.name == "Coin" || c)
+        {
+            transform.SetParent(GameManager.ins.Player.transform);
+            transform.position = Vector3.Lerp(transform.position, GameManager.ins.Player.transform.position, Time.deltaTime * 3f);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -16,6 +20,10 @@ public class CoinManager : MonoBehaviour
         {
             ScoreManager.instance.Coin++;
             Destroy(gameObject);
-        }       
+        }
+        if (other.gameObject.tag == "AmmoPlayer")
+        {
+            c = true;
+        }
     }
 }

@@ -13,7 +13,6 @@ public class EnemyManager : MonoBehaviour
     public Transform Bone;
     private void Start()
     {
-        EnemySpawner.aliveEnemies++;
         Target = FindObjectOfType<PlayerMovement>().transform;
     }
     private void LateUpdate()
