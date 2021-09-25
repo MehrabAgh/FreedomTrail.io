@@ -7,7 +7,7 @@ public class PlayerWeapon : MonoBehaviour
 
     public Transform barrel; // shooting pivot as mehrab call it :)
     public GameObject bullet; // player bullet prefab
-    public float projectionSpeed = 1000;
+    public float projectionSpeed = 200;
 
     public ParticleSystem muzzleFX;
 
@@ -80,7 +80,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         if(nexttimetofire <= 0)
        {
-           if(burstshotCount >= 3)
+           if(burstshotCount == 3)
            {
                nexttimetofire = delays[0];
                burstshotCount = 0;
