@@ -5,16 +5,16 @@ using UnityEngine;
 public class CarWaypointMovement : MonoBehaviour
 {
 
-    public CarAIControl car;
+    private CarAIControl car;
     private Transform carObj;
-    public Transform[] waypoints;
+    private Transform[] waypoints;
     private int curWpIndx = 0;
     private float dist = 0.5f;
     private bool pathFinished = false;
 
     private void Start()
     {
-        
+        car = GameObject.FindGameObjectWithTag("Player").GetComponent<CarAIControl>();
         carObj = car.gameObject.transform;
         waypoints = new Transform[transform.childCount];
         for (int i = 0; i < transform.childCount; i++)

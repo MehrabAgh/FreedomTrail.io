@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44187263, g: 0.49081796, b: 0.57077545, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -606,8 +606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!4 &16257505 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000012879006608, guid: 413c0ee9c5b281a42aaccccc0d5d55b6, type: 3}
@@ -1132,8 +1130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!1001 &39757895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2191,8 +2187,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!4 &79508054 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000013067603608, guid: 54baad8be8f0849b2b20fd1da61be15f, type: 3}
@@ -4231,8 +4225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!4 &164623122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000013266598056, guid: 8295367b16a7c104797e4a749765ddbd, type: 3}
@@ -6621,8 +6613,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!4 &271909546
 Transform:
   m_ObjectHideFlags: 0
@@ -7088,8 +7078,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!4 &284645092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3834919377137789206, guid: 10c7c72f6a538074db68b9b6f246d0c4, type: 3}
@@ -7939,8 +7927,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!1001 &319489068
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13949,8 +13935,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!1001 &588147776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15017,8 +15001,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!1001 &623073996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20381,8 +20363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!4 &856849378 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000011819953726, guid: ccf341e2c0a1b7946939b638f41c530c, type: 3}
@@ -21281,8 +21261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!1001 &930289149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25659,8 +25637,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!1001 &1105162923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28384,8 +28360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!1001 &1228345304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30245,8 +30219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!1 &1310195720
 GameObject:
   m_ObjectHideFlags: 0
@@ -31236,8 +31208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!1001 &1331214675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34814,8 +34784,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!1001 &1478286004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35430,8 +35398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!1001 &1499635654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37101,8 +37067,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!1001 &1586357132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37972,8 +37936,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!4 &1622385731 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000012032115572, guid: cb7506326845d4d45a8a2e3f49a58044, type: 3}
@@ -38746,17 +38708,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 429248, guid: 7f2fd78765875844d84201766e8619df, type: 3}
   m_PrefabInstance: {fileID: 1650649523}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1657381140 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5371923921536389125, guid: e833d458df54d7f4dac17b4ed46bbfce, type: 3}
-  m_PrefabInstance: {fileID: 1689329217}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d963df58504b69045b8d0d746ba6f777, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1661166979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38915,8 +38866,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!4 &1663939522 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000013044457202, guid: eaaf35a4da309294d98a941c21e3f8a5, type: 3}
@@ -39756,6 +39705,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5371923921529857459, guid: e833d458df54d7f4dac17b4ed46bbfce, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5371923921536389125, guid: e833d458df54d7f4dac17b4ed46bbfce, type: 3}
+      propertyPath: m_Driving
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291414791584419110, guid: e833d458df54d7f4dac17b4ed46bbfce, type: 3}
+      propertyPath: curWeapone
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182090620112916305, guid: e833d458df54d7f4dac17b4ed46bbfce, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -43863,8 +43824,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!1001 &1906946126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44945,8 +44904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!4 &1955293137 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000013394088876, guid: d17c28d3e02f33040aabbba51a2118fd, type: 3}
@@ -47199,8 +47156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!1001 &2062545832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47501,8 +47456,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!1001 &2082084742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48265,8 +48218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5a7fa8c48257488c5bbb618e11e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1657381140}
-  waypoints: []
 --- !u!1001 &2122875406
 PrefabInstance:
   m_ObjectHideFlags: 0

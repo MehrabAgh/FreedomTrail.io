@@ -13,6 +13,8 @@ public class PlayerWeapon : MonoBehaviour
 
     public enum weapone {rifle, shotgun, machinegun, minigun};
     public weapone curWeapone;
+    private int curIndx = 0;
+    public GameObject[] weaponeModels;
 
     private float[] FPS = {1.2f, 0.6f, 7, 15};
     private float[] delays; 
@@ -26,30 +28,101 @@ public class PlayerWeapon : MonoBehaviour
         {
             delays[i] = 1 / FPS[i];
         }
+
+        changeGun(0);
     }
 
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0) & curWeapone == weapone.minigun)
+        if (Input.GetKey(KeyCode.Mouse0))
         {
-           minigunShoot();
+            shoot();
+        }
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            changeGun(curIndx + 1);
         }
         
-        if (Input.GetKey(KeyCode.Mouse0) & curWeapone == weapone.machinegun)
-        {
-           machineGunShoot();
-        }
-        if (Input.GetKey(KeyCode.Mouse0) & curWeapone == weapone.shotgun)
-        {
-           shotgunShoot();
-        }
-        if (Input.GetKey(KeyCode.Mouse0) & curWeapone == weapone.rifle)
-        {
-           burstShoot();
-        }
-
           nexttimetofire -= Time.deltaTime;
+    }
+
+
+    public void changeGun(int gun)
+    {
+        gun = gun > 3? 0: gun;
+        curIndx = gun;
+
+        switch (gun)
+        {
+            case 0:
+            {
+                curWeapone = weapone.rifle;
+                for (int i = 0; i < weaponeModels.Length; i++)
+                {
+                    weaponeModels[i].SetActive(i == gun);
+                }
+                break;
+            }
+            case 1:
+            {
+                curWeapone = weapone.shotgun;
+                for (int i = 0; i < weaponeModels.Length; i++)
+                {
+                    weaponeModels[i].SetActive(i == gun);
+                }
+                break;
+            }
+            case 2:
+            {
+                curWeapone = weapone.machinegun;
+                for (int i = 0; i < weaponeModels.Length; i++)
+                {
+                    weaponeModels[i].SetActive(i == gun);
+                }
+                break;
+            }
+            case 3:
+            {
+                curWeapone = weapone.minigun;
+                for (int i = 0; i < weaponeModels.Length; i++)
+                {
+                    weaponeModels[i].SetActive(i == gun);
+                }
+                break;
+            }
+            
+            default: break;
+        }
+    }
+
+
+    private void shoot()
+    {
+        switch (curWeapone)
+            {
+                case weapone.rifle : 
+                {
+                    burstShoot();
+                    break;
+                }
+                case weapone.shotgun : 
+                {
+                    shotgunShoot();
+                    break;
+                }
+                case weapone.machinegun : 
+                {
+                    machineGunShoot();
+                    break;
+                }
+                case weapone.minigun : 
+                {
+                    minigunShoot();
+                    break;
+                }
+                default: break;
+            }
     }
 
     private void minigunShoot() // miningun shot
