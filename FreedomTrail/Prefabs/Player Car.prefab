@@ -7397,7 +7397,7 @@ MonoBehaviour:
   - {fileID: 5371923921536389149}
   - {fileID: 5371923921536389151}
   m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
-  m_MaximumSteerAngle: 25
+  m_MaximumSteerAngle: 40
   m_SteerHelper: 0.774
   m_TractionControl: 1
   m_FullTorqueOverAllWheels: 2000
@@ -12618,7 +12618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5114183246821577682
 Transform:
   m_ObjectHideFlags: 0

@@ -6,17 +6,22 @@ public class WaypointRoadGenerator : MonoBehaviour
 {
      private Vector3[] waypoints;
      public Transform WaypointHolder;
-     public float roadWidth = 10;
-     private List<Vector3> points = new List<Vector3>();
+     public float RoadWidth = 10;
+     private Vector3 roadWidth;
+     private List<Vector3> vertecies = new List<Vector3>();
+     public Material mat;
      public GameObject pointer;
 
     private void Start()
     {
+        roadWidth = Vector3.right * RoadWidth/2;
+
         waypoints = new Vector3[WaypointHolder.transform.childCount];
         for (int i = 0; i < WaypointHolder.transform.childCount; i++)
         {
             waypoints[i] = WaypointHolder.transform.GetChild(i).position;
         }
+        //StartCoroutine(CalculatePoints());
         CalculatePoints();
         VisualizePoints();
     }
@@ -25,10 +30,46 @@ public class WaypointRoadGenerator : MonoBehaviour
     {
         
     }
+
+    private void GenerateRoadObject()
+    {
+        GameObject roadGO = new GameObject("road");
+        Mesh mesh = new Mesh();
+        MeshFilter MF = roadGO.AddComponent<MeshFilter>() as MeshFilter;
+        MeshRenderer MR = roadGO.AddComponent<MeshRenderer>() as MeshRenderer;
+        MeshCollider col = roadGO.AddComponent<MeshCollider>() as MeshCollider;
+
+        MF.mesh = mesh;
+
+        mesh.vertices = vertecies.ToArray();
+        mesh.triangles = CalculateTries().ToArray();
+
+        mesh.RecalculateNormals();
+        MR.sharedMaterial = mat;
+        col.sharedMesh = mesh;
+    }
     
+    private List<int> CalculateTries()
+    {
+        List<int> t = new List<int>();
+
+        for (int i = 0; i < vertecies.Count - 3; i += 3)
+        {
+            t.Add(i + 3);
+            t.Add(i + 2);
+            t.Add(1 + 0);
+            t.Add(i + 1);
+            t.Add(i + 3);
+            t.Add(i + 0);
+        }
+
+        return t;
+
+    }
+
     void VisualizePoints()
     {
-        foreach (var item in points)
+        foreach (var item in vertecies)
         {
             Instantiate(pointer, item, Quaternion.identity);
         }
@@ -36,21 +77,37 @@ public class WaypointRoadGenerator : MonoBehaviour
 
     private void CalculatePoints()
     {
-        for (int i = 0; i < waypoints.Length - 1; i++)
+
+       // vertecies.Add(waypoints[0] + roadWidth); // right
+        //vertecies.Add(waypoints[0] - roadWidth); // left
+
+        for (int i = 0; i < waypoints.Length - 2; i+=2)
         {
 
-            //Vector3 rPoint = new Vector3(x: waypoints[i].x + roadWidth / 2, y: 0, z: waypoints[i].z);
-            //Vector3 lPoint = new Vector3(x:waypoints[i].x  -roadWidth / 2, y: 0, z: waypoints[i].z);
 
-            float angle = Vector3.Angle(waypoints[i + 1] - waypoints[i], -Vector3.forward);
+            Vector3 p1 = waypoints[i];
+            Vector3 p2 = waypoints[i +1];
+            Vector3 p3 = waypoints[i +2];
+            
 
-            Vector3 rPoint = new Vector3((Mathf.Cos(angle) * roadWidth) + waypoints[i].x , 0, (Mathf.Sin(angle) * roadWidth) + waypoints[i].z);
-            Vector3 lPoint = new Vector3((Mathf.Cos(angle) * -roadWidth) - waypoints[i].x , 0, (Mathf.Sin(angle) * roadWidth) + waypoints[i].z);
+            for (int j = 0; j < 5; j++)
+            {
+                print(j*0.2f);
+                Vector3 q1 = Vector3.Lerp(p1, p2, j*0.2f);
+                Vector3 q2 = Vector3.Lerp(p2, p3, j*0.2f);
+                Vector3 q3 = Vector3.Lerp(q1, q2, j*0.2f);
+                vertecies.Add(q3 - roadWidth);
+        
 
-            Debug.Log(angle);
-            points.Add(rPoint);
-            points.Add(lPoint);
+                vertecies.Add(q3 + roadWidth);
+            
+                
+            }
 
+            vertecies.Add(p3 - roadWidth);
+            vertecies.Add(p3 + roadWidth);
+
+            GenerateRoadObject();
         }
     }
 }

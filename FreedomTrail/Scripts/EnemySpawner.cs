@@ -5,8 +5,9 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
 
-    public static int aliveEnemies;  
+    private int aliveEnemies;  
     public Transform spawnPoint; // the spawn whereabouts
+    public Transform player;
     public GameObject spawnFX;
     public GameObject[] enemyPrefabs;
     private bool spawnAllowed;
@@ -18,6 +19,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
+        aliveEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
         spawnAllowed = aliveEnemies < 2; // if there's < 2 enemies alive we can spawn new ones
     }
 
@@ -30,9 +32,11 @@ public class EnemySpawner : MonoBehaviour
             {
             print("spawning");
 
-            // wait for 5-10 seconds before spawning new enemies
-            float delay = Random.Range(5, 10);
+            // wait for some seconds before spawning new enemies
+            float delay = Random.Range(1, 5);
             yield return new WaitForSeconds(delay);
+
+            
 
             Vector3 pos = spawnPoint.position + (Vector3.right * Random.Range(-1,1)* 5);
 

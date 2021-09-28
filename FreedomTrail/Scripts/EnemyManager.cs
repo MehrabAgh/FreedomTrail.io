@@ -17,7 +17,7 @@ public class EnemyManager : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if (gameObject.name == "heli")
+        if (GetComponent<HeliMovement>())
         {
             TargetLook(Target, heliGun); 
         }

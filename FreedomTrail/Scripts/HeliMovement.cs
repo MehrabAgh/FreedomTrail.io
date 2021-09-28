@@ -11,6 +11,7 @@ public class HeliMovement : MonoBehaviour
 
     private void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         offset = transform.position - target.position;
        // offset = new Vector3(0,height,0);
     }
