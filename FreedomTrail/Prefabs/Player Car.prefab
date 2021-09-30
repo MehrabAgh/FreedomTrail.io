@@ -7318,6 +7318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5371923921529633171}
   - component: {fileID: 5371923921533011603}
+  - component: {fileID: 3845839834005490989}
   - component: {fileID: 5371923921536389127}
   - component: {fileID: 5371923921536389125}
   - component: {fileID: 5371923921536389129}
@@ -7368,6 +7369,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3845839834005490989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5371923921529857459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb866d8fe196164789e471a60506dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5371923921536389127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7397,7 +7410,7 @@ MonoBehaviour:
   - {fileID: 5371923921536389149}
   - {fileID: 5371923921536389151}
   m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
-  m_MaximumSteerAngle: 40
+  m_MaximumSteerAngle: 25
   m_SteerHelper: 0.774
   m_TractionControl: 1
   m_FullTorqueOverAllWheels: 2000
@@ -12618,7 +12631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5114183246821577682
 Transform:
   m_ObjectHideFlags: 0

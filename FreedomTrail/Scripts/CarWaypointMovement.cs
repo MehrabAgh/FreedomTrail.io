@@ -5,7 +5,7 @@ using UnityEngine;
 public class CarWaypointMovement : MonoBehaviour
 {
 
-    private CarAIControl car;
+    public CarAIControl car;
     private Transform carObj;
     private Transform[] waypoints;
     private int curWpIndx = 0;
@@ -25,6 +25,20 @@ public class CarWaypointMovement : MonoBehaviour
 
     private void Update()
     {
+        print(car + "|" + waypoints + "|" + carObj);
+        if (car == null)
+        {
+            car = GameObject.FindGameObjectWithTag("Player").GetComponent<CarAIControl>();
+            carObj = car.gameObject.transform;
+        }
+        if (waypoints.Length <= 0) {
+            waypoints = new Transform[transform.childCount];
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                waypoints[i] = transform.GetChild(i);
+            }
+        }
+       
         if(pathFinished)
             return;
        
