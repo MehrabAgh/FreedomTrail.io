@@ -19,6 +19,7 @@ public class CoinManager : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             ScoreManager.instance.Coin++;
+            PlayerPrefs.SetInt("Coin", ScoreManager.instance.Coin);
             Destroy(gameObject);
         }
         if (other.gameObject.tag == "AmmoPlayer")

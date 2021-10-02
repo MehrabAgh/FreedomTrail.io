@@ -1,16 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
     public GameObject CoinObj;
-    public int Coin;
+    public int Coin , CoinStart;
     public int Kill;
-
+    public Text[] TcoinSubmited , Tcoin;
     private void Awake()
+    {     
+        instance = this;       
+        CoinStart = PlayerPrefs.GetInt("CoinStart");             
+    }
+    private void Update()
     {
-        instance = this;
+        foreach (Text item in TcoinSubmited)
+        {
+            item.text = CoinStart.ToString();
+        }
+        foreach (Text item in Tcoin)
+        {
+            item.text = Coin.ToString();
+        }
     }
 }

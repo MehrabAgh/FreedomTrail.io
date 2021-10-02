@@ -21,6 +21,12 @@ public class LevelManager : MonoBehaviour
         nameLevel = PlayerPrefs.GetString("Level");
         indexLevel = PlayerPrefs.GetInt("IndexLevel");
         indexDelayShoot = PlayerPrefs.GetFloat("IndexDelay");
+        if(indexDelayShoot <= 0)
+        {
+            indexDelayShoot = 2f;
+            PlayerPrefs.SetFloat("IndexDelay", indexDelayShoot);
+        }
+        print(indexDelayShoot);
         Cars =FindObjectsOfType<CarController>();      
         if (nameLevel == ""||name == null)
         {
@@ -44,16 +50,20 @@ public class LevelManager : MonoBehaviour
         pivStart = levelSubmit.transform.Find("PivotStart");
         GameManager.ins.Player.transform.position = pivStart.transform.position;
     }
-    private void Update()
+    public void EnemyDelayEdit()
     {
         if (c.Length <= EnemySpawner.ES.maxEnemy)
         {
             c = FindObjectsOfType<EnemyManager>();
-          
+
             foreach (EnemyManager item in c)
             {
                 item.DelayStart = indexDelayShoot;
             }
         }
+    }
+    private void Update()
+    {
+        EnemyDelayEdit();
     }
 }

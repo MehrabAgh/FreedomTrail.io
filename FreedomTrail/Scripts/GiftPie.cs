@@ -1,21 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class GiftPie : MonoBehaviour
+public class GiftPie : MonoBehaviour, IPointerClickHandler
 {
     public Image pivArrow;
     public float angle;
     public int multScore;
-    private bool x , clicked;
+    public bool x, clicked;
+    public Image coinimg;
+    public Transform pivCoin;
+    public List<GameObject> co;
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        clicked = true;
+        for (int i = 0; i < multScore; i++)
+        {
+            co.Add(Instantiate(coinimg.gameObject, transform.position, transform.rotation));
+            co[i].transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform);
+            co[i].transform.localScale = new Vector3(1, 1, 1);
+        }
+        if (ScoreManager.instance.Coin > 0)
+        {
+            ScoreManager.instance.Coin *= multScore;
+        }
+        else if (ScoreManager.instance.Coin == 0)
+        {
+            ScoreManager.instance.Coin += multScore;
+        }
+        print(ScoreManager.instance.Coin + "" + multScore);
+    }
+
     private void Start()
     {
         angle = -50;
     }
     private void StateScore()
     {
-        if(angle > 40)
+        if (angle > 40)
         {
             multScore = 2;
         }
@@ -39,10 +63,6 @@ public class GiftPie : MonoBehaviour
     void Update()
     {
         StateScore();
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            clicked = true;
-        }
         if (!clicked)
         {
             if (angle >= 50)
@@ -64,6 +84,26 @@ public class GiftPie : MonoBehaviour
             }
             //angle = Mathf.Clamp(angle, -50, 50);
             pivArrow.rectTransform.rotation = Quaternion.Euler(0, 0, angle);
+        }
+        else
+        {
+
+            for (int i = 0; i < co.Count; i++)
+            {               
+                if (i - 1 != -1)
+                {
+                    if (co[i - 1] == null)
+                    {
+                        if (co[i] != null)
+                            co[i].transform.position = Vector3.Lerp(co[i].transform.position, pivCoin.transform.position, Time.deltaTime * 10);
+                    }
+                }
+                else if (i - 1 == -1)
+                {
+                    if (co[i] != null)
+                        co[i].transform.position = Vector3.Lerp(co[i].transform.position, pivCoin.transform.position, Time.deltaTime * 10);
+                }
+            }
         }
     }
 }

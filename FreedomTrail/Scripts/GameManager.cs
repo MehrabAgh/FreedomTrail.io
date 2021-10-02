@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     }
     public void ResetLevel()
     {
+        LevelManager.instance.indexDelayShoot = 2.6f;
+        LevelManager.instance.EnemyDelayEdit();
         LevelManager.instance.indexLevel = 1;
         PlayerPrefs.SetInt("IndexLevel", 1);
         LevelManager.instance.nameLevel = "Level" + LevelManager.instance.indexLevel;
