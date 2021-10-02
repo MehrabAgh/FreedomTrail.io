@@ -25,7 +25,6 @@ public class CarWaypointMovement : MonoBehaviour
 
     private void Update()
     {
-        print(car + "|" + waypoints + "|" + carObj);
         if (car == null)
         {
             car = GameObject.FindGameObjectWithTag("Player").GetComponent<CarAIControl>();

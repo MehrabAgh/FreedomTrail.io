@@ -7,8 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager ins;
     public GameObject Player;
-    public bool _isEndGame;
+    public bool _isEndGame , _isPause;
     public List<CarAIControl> Cars;
+    public GameObject UIGame, UIFinish, UIOver;
     private void Awake()
     {
         ins = this;
@@ -17,15 +18,13 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        StartGame();
         Cars.Add(FindObjectOfType<CarAIControl>());        
     }
     public void Play()
     {       
         _isEndGame = false;
-        foreach (var item in Cars)
-        {
-            item.enabled = true;
-        }
+        EnableCar();
     }
     public void ResetLevel()
     {
@@ -35,6 +34,29 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetString("Level", LevelManager.instance.nameLevel);
         SceneManager.LoadScene("SampleScene");
     }
+    public void EnableCar()
+    {
+        foreach (var item in Cars)
+        {
+            item.enabled = true;
+        }
+    }
+    public void DisableCar()
+    {
+        foreach (var item in Cars)
+        {
+            item.enabled = false;
+        }
+    }
+
+    public void StartGame()
+    {
+        _isPause = false;
+    }
+    public void EndGame()
+    {
+        _isPause = true;
+    }
     private void Update()
     {             
         if (_isEndGame)
@@ -42,10 +64,7 @@ public class GameManager : MonoBehaviour
             //Gameover
             // PlayerPrefs.SetInt("Coin", ScoreManager.instance.Coin);
             // Time.timeScale = 0;
-            foreach (var item in Cars)
-            {
-                item.enabled = false;
-            }
+            DisableCar();
         }
         else
         {            

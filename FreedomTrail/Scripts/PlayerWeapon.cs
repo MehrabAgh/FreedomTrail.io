@@ -96,35 +96,43 @@ public class PlayerWeapon : MonoBehaviour
         }
     }
 
-
+    public void DisableGuns()
+    {
+        for (int i = 0; i < weaponeModels.Length; i++)
+        {
+            weaponeModels[i].SetActive(false);
+        }
+    }
     private void shoot()
     {
-        switch (curWeapone)
+        if (!GameManager.ins._isEndGame && !GameManager.ins._isPause)
+        {
+            switch (curWeapone)
             {
-                case weapone.rifle : 
-                {
-                    burstShoot();
-                    break;
-                }
-                case weapone.shotgun : 
-                {
-                    shotgunShoot();
-                    break;
-                }
-                case weapone.machinegun : 
-                {
-                    machineGunShoot();
-                    break;
-                }
-                case weapone.minigun : 
-                {
-                    minigunShoot();
-                    break;
-                }
+                case weapone.rifle:
+                    {
+                        burstShoot();
+                        break;
+                    }
+                case weapone.shotgun:
+                    {
+                        shotgunShoot();
+                        break;
+                    }
+                case weapone.machinegun:
+                    {
+                        machineGunShoot();
+                        break;
+                    }
+                case weapone.minigun:
+                    {
+                        minigunShoot();
+                        break;
+                    }
                 default: break;
             }
+        }
     }
-
     private void minigunShoot() // miningun shot
     {
         if(nexttimetofire <= 0)

@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public CarController[] Cars;
+    public EnemyManager[] c;
     public List<Transform> Levels;
     public string nameLevel;
     public Transform levelSubmit,pivStart;
     public int indexLevel;
     public static LevelManager instance;
-
+    public float indexDelayShoot;
     private void Awake()
     {
         instance = this;
@@ -18,10 +20,12 @@ public class LevelManager : MonoBehaviour
     {
         nameLevel = PlayerPrefs.GetString("Level");
         indexLevel = PlayerPrefs.GetInt("IndexLevel");
-
+        indexDelayShoot = PlayerPrefs.GetFloat("IndexDelay");
+        Cars =FindObjectsOfType<CarController>();      
         if (nameLevel == ""||name == null)
         {
             indexLevel = 1;
+            indexDelayShoot = 2f;
             nameLevel = "Level"+indexLevel;
             PlayerPrefs.SetString("Level", nameLevel);
         }
@@ -32,7 +36,24 @@ public class LevelManager : MonoBehaviour
                 levelSubmit = Instantiate(item, transform.position, transform.rotation);
             }
         }
+        foreach (CarController item in Cars)
+        {            
+            item.SpeedMAX = 10 + (indexLevel*20);
+            item.MaxSpeed = item.SpeedMAX;
+        }      
         pivStart = levelSubmit.transform.Find("PivotStart");
         GameManager.ins.Player.transform.position = pivStart.transform.position;
-    }    
+    }
+    private void Update()
+    {
+        if (c.Length <= EnemySpawner.ES.maxEnemy)
+        {
+            c = FindObjectsOfType<EnemyManager>();
+          
+            foreach (EnemyManager item in c)
+            {
+                item.DelayStart = indexDelayShoot;
+            }
+        }
+    }
 }

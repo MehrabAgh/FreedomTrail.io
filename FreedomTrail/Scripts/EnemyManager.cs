@@ -37,23 +37,25 @@ public class EnemyManager : MonoBehaviour
     }
     public void AttackShoot()
     {
-        if (waiting)
-        {
-            Delay -= Time.deltaTime;
-            if (Delay <= 0)
+        if (!GameManager.ins._isEndGame && !GameManager.ins._isPause) {
+            if (waiting)
             {
-                waiting = false;
+                Delay -= Time.deltaTime;
+                if (Delay <= 0)
+                {
+                    waiting = false;
+                }
             }
-        }
-        if (!waiting)
-        {
-            for (int i = 0; i < PivGun.Length; i++)
+            if (!waiting)
             {
-                Ammo2 = Instantiate(Ammo, PivGun[i].position, PivGun[i].rotation);
-                Ammo2.GetComponent<Rigidbody>().AddForce(Ammo2.transform.forward * Power);
+                for (int i = 0; i < PivGun.Length; i++)
+                {
+                    Ammo2 = Instantiate(Ammo, PivGun[i].position, PivGun[i].rotation);
+                    Ammo2.GetComponent<Rigidbody>().AddForce(Ammo2.transform.forward * Power);
+                }
+                Delay = DelayStart;
+                waiting = true;
             }
-            Delay = DelayStart;
-            waiting = true;
         }
     }
 }

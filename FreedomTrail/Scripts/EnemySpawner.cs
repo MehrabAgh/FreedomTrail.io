@@ -5,16 +5,25 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
 
-    private int aliveEnemies;  
-    public Transform spawnPoint; // the spawn whereabouts
-    public Transform player;
+    private int aliveEnemies;
+    public Transform[] spawnPoint; // the spawn whereabouts
+    public Transform  submitSpawnPoint;
     public GameObject spawnFX;
     public GameObject[] enemyPrefabs;
     private bool spawnAllowed;
+    //
+    public static EnemySpawner ES;
+    public int maxEnemy;
 
-    private void Start()
+    private void Awake()
     {
-        StartCoroutine(spawn());
+        ES = this;
+    }
+    private void Start()
+    {      
+        spawnAllowed = true;
+        Spawn();
+       // StartCoroutine(spawn());
     }
 
     private void Update()
@@ -22,33 +31,46 @@ public class EnemySpawner : MonoBehaviour
         aliveEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
         spawnAllowed = aliveEnemies < 2; // if there's < 2 enemies alive we can spawn new ones
     }
+    private void Spawn()
+    {
+        for (int i = 0; i < maxEnemy; i++)
+        {
+            // wait for some seconds before spawning new enemies      
+            submitSpawnPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
 
+            Vector3 pos = submitSpawnPoint.position + (Vector3.right * Random.Range(-1, 1) * 5);
+
+            Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], pos,
+            Quaternion.Euler(new Vector3(0, 180, 0)));
+        }
+    }
     private IEnumerator spawn()
     {
-       
+
         while (true)
         {
-            if(spawnAllowed)
+            if (spawnAllowed)
             {
-            print("spawning");
+                print("spawning");
 
-            // wait for some seconds before spawning new enemies
-            float delay = Random.Range(1, 5);
-            yield return new WaitForSeconds(delay);
+                // wait for some seconds before spawning new enemies
+                float delay = Random.Range(1, 5);
+                submitSpawnPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
+                yield return new WaitForSeconds(delay);
 
-            
 
-            Vector3 pos = spawnPoint.position + (Vector3.right * Random.Range(-1,1)* 5);
 
-            Instantiate(enemyPrefabs[Random.Range(0,enemyPrefabs.Length)], pos,
-            Quaternion.Euler(new Vector3(0, 180, 0))); 
+                Vector3 pos = submitSpawnPoint.position + (Vector3.right * Random.Range(-1, 1) * 5);
 
-            Instantiate(spawnFX, pos, Quaternion.identity); // spawn effect
+                Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], pos,
+                Quaternion.Euler(new Vector3(0, 180, 0)));
+
+                //Instantiate(spawnFX, pos, Quaternion.identity); // spawn effect
 
             }
             else
             {
-                yield return null;                
+                yield return null;
             }
         }
     }

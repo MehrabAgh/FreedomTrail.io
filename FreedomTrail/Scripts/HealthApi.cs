@@ -8,8 +8,7 @@ public class HealthApi : MonoBehaviour
 {
     public float MaxHealth;
     private float health;
-    public Slider healthBar;
-
+    public Slider healthBar;  
     private void Start()
     {
         healthBar.maxValue = MaxHealth;
@@ -24,8 +23,10 @@ public class HealthApi : MonoBehaviour
             if (gameObject.tag == "Player")
             {
                 //PlayerDeath
-                SceneManager.LoadScene("MehrabSceneDemo02");
-                print("! GameOver !");
+                GameManager.ins.UIOver.SetActive(true);
+                GameManager.ins.UIGame.SetActive(false);
+                GameManager.ins.UIFinish.SetActive(false);
+                GameManager.ins._isEndGame = true;                             
             }
             if (gameObject.tag == "Enemy")
             {
