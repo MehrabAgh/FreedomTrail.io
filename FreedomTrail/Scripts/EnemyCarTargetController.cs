@@ -6,6 +6,8 @@ public class EnemyCarTargetController : MonoBehaviour
 {
 
     private CarAIControl car;
+    private Transform playerTransform;
+    private float stoppingDist = 8;
 
     private void Start()
     {
@@ -23,10 +25,13 @@ public class EnemyCarTargetController : MonoBehaviour
         */
         
         car.m_Target = GameObject.Find("Player Car").transform;
+        playerTransform = car.m_Target;
     }
 
     void Update()
     {
+    
+        car.m_Driving = (Vector3.Distance(transform.position, playerTransform.position) > stoppingDist);
         
     }
 }
