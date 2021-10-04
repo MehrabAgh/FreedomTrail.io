@@ -10,6 +10,9 @@ public class PlayerWeapon : MonoBehaviour
     public float projectionSpeed = 200;
 
     public ParticleSystem muzzleFX;
+    public RectTransform aim; //crosshair
+    private Camera cam; // used for crosshair
+    public float aimDistance = 5;
 
     public enum weapone {rifle, shotgun, machinegun, minigun};
     public weapone curWeapone;
@@ -30,11 +33,14 @@ public class PlayerWeapon : MonoBehaviour
         }
 
         changeGun(0);
+        
+        cam = Camera.main;
     }
 
 
     private void Update()
     {
+        //inputs
         if (Input.GetKey(KeyCode.Mouse0))
         {
             shoot();
@@ -42,9 +48,16 @@ public class PlayerWeapon : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.H))
         {
             changeGun(curIndx + 1);
-        }
+        } 
         
-          nexttimetofire -= Time.deltaTime;
+        //fire rate
+        nexttimetofire -= Time.deltaTime;
+        
+        //crosshair
+        Vector3 aimPos = barrel.position + (barrel.forward * aimDistance);
+        Vector3 screenPos = cam.WorldToScreenPoint(aimPos, Camera.MonoOrStereoscopicEye.Mono);
+        aim.position = screenPos;
+
     }
 
 
