@@ -8,7 +8,7 @@ public class ScoreManager : MonoBehaviour
     public GameObject CoinObj;
     public int Coin , CoinStart;
     public int Kill;
-    public Text[] TcoinSubmited , Tcoin;
+    public Text[] TcoinSubmited , Tcoin,TLevel;
     private void Awake()
     {     
         instance = this;       

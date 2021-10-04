@@ -286,7 +286,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d8b3608c06351da4f8e09a879c0ddc66, type: 2}
+  - {fileID: 2100000, guid: 8bce266f4352e4f4ba71c8566a7d3dcc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 8677157689599469701}
   - component: {fileID: 8677157689599469700}
   m_Layer: 0
-  m_Name: way (9)
+  m_Name: PivotEnd
   m_TagString: Finish
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -699,7 +699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8555308781005192622, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
       propertyPath: maxEnemy
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8555308781005192622, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
       propertyPath: enemyPrefabs.Array.size

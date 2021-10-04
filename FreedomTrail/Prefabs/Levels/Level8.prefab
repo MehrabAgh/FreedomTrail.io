@@ -11074,7 +11074,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8555308780509902041, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.7
+      value: -49.7
       objectReference: {fileID: 0}
     - target: {fileID: 8555308780509902041, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11086,7 +11086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8555308780647370034, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 131.4
+      value: 50.3
       objectReference: {fileID: 0}
     - target: {fileID: 8555308781005192621, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
       propertyPath: m_RootOrder
@@ -11132,17 +11132,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8555308781005192622, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
+      propertyPath: maxEnemy
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8555308781005192623, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
       propertyPath: m_Name
       value: SpawnManage
       objectReference: {fileID: 0}
     - target: {fileID: 8555308782095234439, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 70.3
+      value: -74.1
       objectReference: {fileID: 0}
     - target: {fileID: 8555308782373677721, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 56.9
+      value: 76.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555308782373677721, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 123
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}

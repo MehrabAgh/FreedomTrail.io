@@ -39,6 +39,10 @@ public class PlayerWeapon : MonoBehaviour
         {
             shoot();
         }
+        else
+        {
+            GetComponent<Animator>().SetLayerWeight(1, 0);
+        }
         if(Input.GetKeyDown(KeyCode.H))
         {
             changeGun(curIndx + 1);
@@ -107,6 +111,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         if (!GameManager.ins._isEndGame && !GameManager.ins._isPause)
         {
+            GetComponent<Animator>().SetLayerWeight(1, 1);
             switch (curWeapone)
             {
                 case weapone.rifle:

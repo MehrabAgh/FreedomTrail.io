@@ -29,6 +29,11 @@ public class OverGameManage : MonoBehaviour
             GameManager.ins.UIOver.SetActive(false);
             GameManager.ins.UIGame.SetActive(false);
             PlayerChar.transform.localRotation = Quaternion.Euler(-1.148f, 141.081f, 0.927f);
+            
+            if(LevelManager.instance.nameLevel == "BonusLevel")
+            {
+                LevelManager.instance._fakeBonus = true;
+            }
         }
     }
     public void FinishLevel()
@@ -56,17 +61,26 @@ public class OverGameManage : MonoBehaviour
             if (coinimg.Count <= 0)
             {
                 var index = LevelManager.instance.indexLevel;
-                index++;
-                //
-                if (LevelManager.instance.indexDelayShoot <= 0.1f)
+                var nameLevel = PlayerPrefs.GetString("Level");
+                if (nameLevel == "BonusLevel")
                 {
-                    LevelManager.instance.indexDelayShoot = 0.3f;
-                    PlayerPrefs.SetFloat("IndexDelay", LevelManager.instance.indexDelayShoot);
+                    index = LevelManager.instance.indexLevel;
                 }
                 else
                 {
-                    LevelManager.instance.indexDelayShoot -= 0.1f;
-                    PlayerPrefs.SetFloat("IndexDelay", LevelManager.instance.indexDelayShoot);
+                  
+                    index++;
+                    //
+                    if (LevelManager.instance.indexDelayShoot <= 0.1f)
+                    {
+                        LevelManager.instance.indexDelayShoot = 0.3f;
+                        PlayerPrefs.SetFloat("IndexDelay", LevelManager.instance.indexDelayShoot);
+                    }
+                    else
+                    {
+                        LevelManager.instance.indexDelayShoot -= 0.1f;
+                        PlayerPrefs.SetFloat("IndexDelay", LevelManager.instance.indexDelayShoot);
+                    }
                 }
                 //
                 PlayerPrefs.SetInt("IndexLevel", index);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -8,10 +9,13 @@ public class LevelManager : MonoBehaviour
     public EnemyManager[] c;
     public List<Transform> Levels;
     public string nameLevel;
-    public Transform levelSubmit,pivStart;
+    public Transform levelSubmit,pivStart,pivEnd,BonusLevel;
     public int indexLevel;
     public static LevelManager instance;
     public float indexDelayShoot;
+    public Slider pathRow;
+    public static bool _isbonusLevel;
+    public bool _fakeBonus;
     private void Awake()
     {
         instance = this;
@@ -21,12 +25,12 @@ public class LevelManager : MonoBehaviour
         nameLevel = PlayerPrefs.GetString("Level");
         indexLevel = PlayerPrefs.GetInt("IndexLevel");
         indexDelayShoot = PlayerPrefs.GetFloat("IndexDelay");
-        if(indexDelayShoot <= 0)
+      
+        if (indexDelayShoot <= 0)
         {
             indexDelayShoot = 2f;
             PlayerPrefs.SetFloat("IndexDelay", indexDelayShoot);
-        }
-        print(indexDelayShoot);
+        }       
         Cars =FindObjectsOfType<CarController>();      
         if (nameLevel == ""||name == null)
         {
@@ -35,11 +39,26 @@ public class LevelManager : MonoBehaviour
             nameLevel = "Level"+indexLevel;
             PlayerPrefs.SetString("Level", nameLevel);
         }
-        foreach (Transform item in Levels)
+        if (indexLevel % 2 == 0 && !_isbonusLevel)
         {
-            if(item.name == nameLevel)
+            levelSubmit = Instantiate(BonusLevel, transform.position, transform.rotation);
+            nameLevel = "BonusLevel";
+            PlayerPrefs.SetString("Level", nameLevel);
+           
+        }
+        else
+        {
+            _isbonusLevel = false;
+            foreach (var item in ScoreManager.instance.TLevel)
             {
-                levelSubmit = Instantiate(item, transform.position, transform.rotation);
+                item.text = nameLevel;
+            }
+            foreach (Transform item in Levels)
+            {
+                if (item.name == nameLevel)
+                {
+                    levelSubmit = Instantiate(item, transform.position, transform.rotation);
+                }
             }
         }
         foreach (CarController item in Cars)
@@ -48,6 +67,9 @@ public class LevelManager : MonoBehaviour
             item.MaxSpeed = item.SpeedMAX;
         }      
         pivStart = levelSubmit.transform.Find("PivotStart");
+        pivEnd = GameObject.Find("PivotEnd").transform;
+        var dis = Vector3.Distance(GameManager.ins.Player.transform.position, pivEnd.transform.position);
+        pathRow.maxValue = dis;
         GameManager.ins.Player.transform.position = pivStart.transform.position;
     }
     public void EnemyDelayEdit()
@@ -61,9 +83,16 @@ public class LevelManager : MonoBehaviour
                 item.DelayStart = indexDelayShoot;
             }
         }
-    }
+    }   
     private void Update()
     {
+        _isbonusLevel = _fakeBonus;
         EnemyDelayEdit();
+        DistancePath();
+    }
+    public void DistancePath()
+    {
+        var dis = Vector3.Distance(GameManager.ins.Player.transform.position, pivEnd.transform.position);
+        pathRow.value = dis;
     }
 }

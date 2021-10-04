@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class GiftPie : MonoBehaviour, IPointerClickHandler
+public class GiftPie : MonoBehaviour
 {
     public Image pivArrow;
     public float angle;
@@ -13,7 +13,7 @@ public class GiftPie : MonoBehaviour, IPointerClickHandler
     public Image coinimg;
     public Transform pivCoin;
     public List<GameObject> co;
-    public void OnPointerClick(PointerEventData eventData)
+    public void click()
     {
         clicked = true;
         for (int i = 0; i < multScore; i++)
