@@ -1959,7 +1959,7 @@ MonoBehaviour:
   m_MaxHandbrakeTorque: 100000000
   m_Downforce: 100
   m_SpeedType: 0
-  m_Topspeed: 50
+  m_Topspeed: 140
   m_RevRangeBoundary: 1
   m_SlipLimit: 0.4
   m_BrakeTorque: 20000
@@ -1989,9 +1989,9 @@ MonoBehaviour:
   m_AccelWanderSpeed: 0.1
   m_BrakeCondition: 2
   m_Driving: 1
-  m_Target: {fileID: 7966284400396797058}
+  m_Target: {fileID: 0}
   m_StopWhenTargetReached: 0
-  m_ReachTargetThreshold: 10
+  m_ReachTargetThreshold: 2
 --- !u!114 &7966284400403475812
 MonoBehaviour:
   m_ObjectHideFlags: 0

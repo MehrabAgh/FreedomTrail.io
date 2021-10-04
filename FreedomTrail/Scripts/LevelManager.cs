@@ -87,7 +87,10 @@ public class LevelManager : MonoBehaviour
     private void Update()
     {
         _isbonusLevel = _fakeBonus;
-        EnemyDelayEdit();
+        if (nameLevel != "BonusLevel")
+        {
+            EnemyDelayEdit();
+        }
         DistancePath();
     }
     public void DistancePath()

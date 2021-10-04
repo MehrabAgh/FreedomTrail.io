@@ -166,7 +166,7 @@ using UnityEngine;
             GearChanging();
 
             AddDownForce();
-            //CheckForWheelSpin();
+            CheckForWheelSpin();
             TractionControl();
         }
 
@@ -267,7 +267,7 @@ using UnityEngine;
         // 2) plays tiure skidding sounds
         // 3) leaves skidmarks on the ground
         // these effects are controlled through the WheelEffects class
-       /* private void CheckForWheelSpin()
+        private void CheckForWheelSpin()
         {
             // loop through all wheels
             for (int i = 0; i < 4; i++)
@@ -297,7 +297,7 @@ using UnityEngine;
                 // end the trail generation
                 m_WheelEffects[i].EndSkidTrail();
             }
-        }*/
+        }
 
         // crude traction control that reduces the power to wheel if the car is wheel spinning too much
         private void TractionControl()
