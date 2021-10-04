@@ -5,11 +5,14 @@ using UnityEngine;
 public class PlayerWeapon : MonoBehaviour
 {
 
-    public Transform barrel; // shooting pivot as mehrab call it :)
+    public Transform barrel; // shooting pivot as Mehrab call it :)
     public GameObject bullet; // player bullet prefab
     public float projectionSpeed = 200;
 
     public ParticleSystem muzzleFX;
+    public RectTransform aim; //cross hair
+    private Camera cam; // used for cross hair
+    public float aimDistance = 5;
 
     public enum weapone {rifle, shotgun, machinegun, minigun};
     public weapone curWeapone;
@@ -30,25 +33,31 @@ public class PlayerWeapon : MonoBehaviour
         }
 
         changeGun(0);
+        
+        cam = Camera.main;
     }
 
 
     private void Update()
     {
+        //inputs
         if (Input.GetKey(KeyCode.Mouse0))
         {
             shoot();
         }
-        else
-        {
-            GetComponent<Animator>().SetLayerWeight(1, 0);
-        }
         if(Input.GetKeyDown(KeyCode.H))
         {
             changeGun(curIndx + 1);
-        }
+        } 
         
-          nexttimetofire -= Time.deltaTime;
+        //fire rate
+        nexttimetofire -= Time.deltaTime;
+        
+        //cross hair
+        var aimPos = barrel.position + (barrel.forward * aimDistance);
+        var screenPos = cam.WorldToScreenPoint(aimPos, Camera.MonoOrStereoscopicEye.Mono);
+        aim.position = screenPos;
+
     }
 
 
@@ -111,7 +120,6 @@ public class PlayerWeapon : MonoBehaviour
     {
         if (!GameManager.ins._isEndGame && !GameManager.ins._isPause)
         {
-            GetComponent<Animator>().SetLayerWeight(1, 1);
             switch (curWeapone)
             {
                 case weapone.rifle:

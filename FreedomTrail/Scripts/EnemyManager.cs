@@ -9,7 +9,7 @@ public class EnemyManager : MonoBehaviour
     public GameObject Ammo, Ammo2;
     private bool waiting;
     public float Power = 1500, DelayStart;
-    private float Delay;
+    private float Delay, attackDist = 25;
     public Transform Bone;
     private void Start()
     {
@@ -29,6 +29,8 @@ public class EnemyManager : MonoBehaviour
     }
     private void Update()
     {
+        if (Mathf.Abs(Target.position.magnitude - transform.position.magnitude) > attackDist)
+            return;
         AttackShoot();
     }
     public void TargetLook(Transform Target , Transform piv)
