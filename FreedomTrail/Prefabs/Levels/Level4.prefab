@@ -154,8 +154,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 0}
-  pathFinished: 0
-  loopedPath: 0
 --- !u!1 &219876506746043523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2713,7 +2711,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 135327108805909580, guid: 3d6f48db001be46c2963450e86497f99, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3d6f48db001be46c2963450e86497f99, type: 3}
 --- !u!4 &224183735715260035 stripped
 Transform:

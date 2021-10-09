@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 8169301724608425607}
   - component: {fileID: 8169301724608425603}
   - component: {fileID: 8169301724608425600}
-  m_Layer: 2
-  m_Name: CoinForSpawn
+  m_Layer: 0
+  m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

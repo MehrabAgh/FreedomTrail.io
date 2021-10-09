@@ -95,13 +95,13 @@ public class GiftPie : MonoBehaviour
                     if (co[i - 1] == null)
                     {
                         if (co[i] != null)
-                            co[i].transform.position = Vector3.Lerp(co[i].transform.position, pivCoin.transform.position, Time.deltaTime * 10);
+                            co[i].transform.position = Vector3.Lerp(co[i].transform.position, pivCoin.transform.position, Time.deltaTime * 20);
                     }
                 }
                 else if (i - 1 == -1)
                 {
                     if (co[i] != null)
-                        co[i].transform.position = Vector3.Lerp(co[i].transform.position, pivCoin.transform.position, Time.deltaTime * 10);
+                        co[i].transform.position = Vector3.Lerp(co[i].transform.position, pivCoin.transform.position, Time.deltaTime * 20);
                 }
             }
         }

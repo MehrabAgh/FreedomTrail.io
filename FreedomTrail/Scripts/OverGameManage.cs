@@ -98,13 +98,13 @@ public class OverGameManage : MonoBehaviour
                         if (coinimg[i - 1] == null)
                         {
                             if (coinimg[i] != null)
-                                coinimg[i].transform.position = Vector3.Lerp(coinimg[i].transform.position, pivEndCoin.transform.position, Time.deltaTime * 10);
+                                coinimg[i].transform.position = Vector3.Lerp(coinimg[i].transform.position, pivEndCoin.transform.position, Time.deltaTime * 20);
                         }
                     }
                     else if (i - 1 == -1)
                     {
                         if (coinimg[i] != null)
-                            coinimg[i].transform.position = Vector3.Lerp(coinimg[i].transform.position, pivEndCoin.transform.position, Time.deltaTime * 10);
+                            coinimg[i].transform.position = Vector3.Lerp(coinimg[i].transform.position, pivEndCoin.transform.position, Time.deltaTime * 20);
                     }
                 }
             }

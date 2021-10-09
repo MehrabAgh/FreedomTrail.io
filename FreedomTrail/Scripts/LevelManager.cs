@@ -44,8 +44,12 @@ public class LevelManager : MonoBehaviour
             levelSubmit = Instantiate(BonusLevel, transform.position, transform.rotation);
             nameLevel = "BonusLevel";
             PlayerPrefs.SetString("Level", nameLevel);
-           
+            foreach (var item in ScoreManager.instance.TLevel)
+            {
+                item.text = nameLevel;
+            }
         }
+       
         else
         {
             _isbonusLevel = false;

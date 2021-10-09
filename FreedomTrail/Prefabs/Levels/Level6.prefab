@@ -10390,7 +10390,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 135720477089918840, guid: e09783fe9687c4822b9cd48a7af0e5e6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e09783fe9687c4822b9cd48a7af0e5e6, type: 3}
 --- !u!4 &2972370070961900771 stripped
 Transform:
@@ -11082,7 +11083,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 135720477089918840, guid: e09783fe9687c4822b9cd48a7af0e5e6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e09783fe9687c4822b9cd48a7af0e5e6, type: 3}
 --- !u!4 &3916219352178791992 stripped
 Transform:
@@ -14498,7 +14500,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 135720477089918840, guid: e09783fe9687c4822b9cd48a7af0e5e6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e09783fe9687c4822b9cd48a7af0e5e6, type: 3}
 --- !u!4 &8221099102918666332 stripped
 Transform:
@@ -15620,7 +15623,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8555308781005192622, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
       propertyPath: maxEnemy
-      value: 6
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555308781005192622, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
+      propertyPath: enemyPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555308781005192622, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
+      propertyPath: enemyPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555308781005192622, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
+      propertyPath: enemyPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555308781005192622, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
+      propertyPath: enemyPrefabs.Array.data[3]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8555308781005192623, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
       propertyPath: m_Name

@@ -5,14 +5,15 @@ using UnityEngine;
 public class CoinImageDist : MonoBehaviour
 {
     private GiftPie gp;
+    public float dis;
     private void Start()
     {
         gp = FindObjectOfType<GiftPie>();
     }
     void Update()
     {
-        var dis = Vector3.Distance(transform.position, gp.pivCoin.transform.position);
-        if (dis <= 10f)
+        dis = Vector3.Distance(transform.position, gp.pivCoin.transform.position);
+        if (dis <= 30f)
         {
             ScoreManager.instance.CoinStart += 1;
             PlayerPrefs.SetInt("CoinStart", ScoreManager.instance.CoinStart);
