@@ -19,6 +19,7 @@ public class PlayerWeapon : MonoBehaviour
     public weapone curWeapone;
     private int curIndx = 0;
     public GameObject[] weaponeModels;
+    private GameObject minigunBarrel;
 
     private float[] FPS = {1.2f, 0.6f, 7, 15};
     private float[] delays; 
@@ -36,6 +37,7 @@ public class PlayerWeapon : MonoBehaviour
         changeGun(0);
         
         cam = Camera.main;
+        minigunBarrel = weaponeModels[3].transform.GetChild(3).gameObject;
     }
 
 
@@ -160,6 +162,7 @@ public class PlayerWeapon : MonoBehaviour
     }
     private void minigunShoot() // miningun shot
     {
+        minigunBarrel.transform.Rotate(Vector3.forward, 15, Space.Self);
         if(nexttimetofire <= 0)
        {
 
