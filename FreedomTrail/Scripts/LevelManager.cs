@@ -101,5 +101,13 @@ public class LevelManager : MonoBehaviour
     {
         var dis = Vector3.Distance(GameManager.ins.Player.transform.position, pivEnd.transform.position);
         pathRow.value = dis;
+        print(dis);
+        if(dis <= 10)
+        {
+            foreach (EnemyCarTargetController item in GameManager.ins.Enemys)
+            {
+                Destroy(item.gameObject);
+            }
+        }
     }
 }

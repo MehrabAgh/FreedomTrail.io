@@ -41,6 +41,5 @@ public class EnemyCarTargetController : MonoBehaviour
         alterTarget.position = player.position + ((transform.position - player.position).normalized * -5);
         car.m_Target = alterTarget;
 
-        print(Vector3.Angle(transform.forward, car.m_Target.forward));
     }
 }

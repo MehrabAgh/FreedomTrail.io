@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
     public bool _isEndGame , _isPause;
     public List<CarAIControl> Cars;
+    public EnemyCarTargetController[] Enemys;
     public GameObject UIGame, UIFinish, UIOver;
     private void Awake()
     {
@@ -66,11 +67,12 @@ public class GameManager : MonoBehaviour
             //Gameover
             // PlayerPrefs.SetInt("Coin", ScoreManager.instance.Coin);
             // Time.timeScale = 0;
-            DisableCar();
+            DisableCar();            
         }
         else
         {            
             Time.timeScale = 1;
         }
+        Enemys = FindObjectsOfType<EnemyCarTargetController>();
     }
 }
