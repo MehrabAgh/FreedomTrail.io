@@ -12,6 +12,8 @@ public class PlayerWeapon : MonoBehaviour
     public ParticleSystem muzzleFX;
     public RectTransform aim; //cross hair
     private Camera cam; // used for cross hair
+    private float aimDistance;
+    public float aimFocus = 3; // focus speed
     //public float aimDistance = 5;
     
 
@@ -60,17 +62,19 @@ public class PlayerWeapon : MonoBehaviour
         Ray ray = new Ray(barrel.position, barrel.forward);
         RaycastHit hit;
         Vector3 screenPos;
+        Vector3 aimPos;
         if (Physics.Raycast(ray, out hit))
         {
-            screenPos = cam.WorldToScreenPoint(hit.point, Camera.MonoOrStereoscopicEye.Mono);
-            
+            aimDistance = Mathf.Lerp(aimDistance, hit.distance, Time.time);
+            //aimDistance = Mathf.MoveTowards(aimDistance, hit.distance, Time.deltaTime * aimFocus);
         }
         else
         {
-            var aimPos = barrel.position + (barrel.forward * 50);
-            screenPos = cam.WorldToScreenPoint(aimPos, Camera.MonoOrStereoscopicEye.Mono);
+            aimDistance = Mathf.Lerp(aimDistance, 50, Time.time); // 50 for a default sky distance
         }
-        aim.position = screenPos;
+        aimPos = barrel.position + (barrel.forward * aimDistance);
+        screenPos = cam.WorldToScreenPoint(aimPos, Camera.MonoOrStereoscopicEye.Mono);
+        aim.position = Vector3.MoveTowards(aim.position, screenPos, Time.deltaTime * aimFocus);
 
     }
 
