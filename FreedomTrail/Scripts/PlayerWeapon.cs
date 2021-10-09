@@ -65,12 +65,12 @@ public class PlayerWeapon : MonoBehaviour
         Vector3 aimPos;
         if (Physics.Raycast(ray, out hit))
         {
-            aimDistance = Mathf.Lerp(aimDistance, hit.distance, Time.time);
+            aimDistance = hit.distance; //Mathf.Lerp(aimDistance, hit.distance, Time.time);
             //aimDistance = Mathf.MoveTowards(aimDistance, hit.distance, Time.deltaTime * aimFocus);
         }
         else
         {
-            aimDistance = Mathf.Lerp(aimDistance, 50, Time.time); // 50 for a default sky distance
+            aimDistance = 50;//Mathf.Lerp(aimDistance, 50, Time.time); // 50 for a default sky distance
         }
         aimPos = barrel.position + (barrel.forward * aimDistance);
         screenPos = cam.WorldToScreenPoint(aimPos, Camera.MonoOrStereoscopicEye.Mono);
