@@ -11,11 +11,11 @@ public class ScoreManager : MonoBehaviour
     public Text[] TcoinSubmited , Tcoin,TLevel;
     private void Awake()
     {     
-        instance = this;       
-        CoinStart = PlayerPrefs.GetInt("CoinStart");             
+        instance = this;                  
     }
     private void Update()
     {
+        CoinStart = PlayerPrefs.GetInt("CoinStart");
         foreach (Text item in TcoinSubmited)
         {
             item.text = CoinStart.ToString();
