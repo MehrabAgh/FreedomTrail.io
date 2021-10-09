@@ -14,17 +14,17 @@ public class PlayerWeapon : MonoBehaviour
     private Camera cam; // used for cross hair
     private float aimDistance;
     public float aimFocus = 3; // focus speed
-    //public float aimDistance = 5;
-    
+                               //public float aimDistance = 5;
 
-    public enum weapone {rifle, shotgun, machinegun, minigun};
+
+    public enum weapone { rifle, shotgun, machinegun, minigun };
     public weapone curWeapone;
     private int curIndx = 0;
     public GameObject[] weaponeModels;
     private GameObject minigunBarrel;
 
-    private float[] FPS = {1.2f, 0.6f, 7, 15};
-    private float[] delays; 
+    private float[] FPS = { 1.2f, 0.6f, 7, 15 };
+    private float[] delays;
     private float nexttimetofire;
     private int burstshotCount = 0;
 
@@ -37,7 +37,7 @@ public class PlayerWeapon : MonoBehaviour
         }
 
         changeGun(0);
-        
+
         cam = Camera.main;
         minigunBarrel = weaponeModels[3].transform.GetChild(3).gameObject;
     }
@@ -50,14 +50,14 @@ public class PlayerWeapon : MonoBehaviour
         {
             shoot();
         }
-        if(Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.H))
         {
             changeGun(curIndx + 1);
-        } 
-        
+        }
+
         //fire rate
         nexttimetofire -= Time.deltaTime;
-        
+
         //cross hair
         Ray ray = new Ray(barrel.position, barrel.forward);
         RaycastHit hit;
@@ -81,48 +81,48 @@ public class PlayerWeapon : MonoBehaviour
 
     public void changeGun(int gun)
     {
-        gun = gun > 3? 0: gun;
+        gun = gun > 3 ? 0 : gun;
         curIndx = gun;
 
         switch (gun)
         {
             case 0:
-            {
-                curWeapone = weapone.rifle;
-                for (int i = 0; i < weaponeModels.Length; i++)
                 {
-                    weaponeModels[i].SetActive(i == gun);
+                    curWeapone = weapone.rifle;
+                    for (int i = 0; i < weaponeModels.Length; i++)
+                    {
+                        weaponeModels[i].SetActive(i == gun);
+                    }
+                    break;
                 }
-                break;
-            }
             case 1:
-            {
-                curWeapone = weapone.shotgun;
-                for (int i = 0; i < weaponeModels.Length; i++)
                 {
-                    weaponeModels[i].SetActive(i == gun);
+                    curWeapone = weapone.shotgun;
+                    for (int i = 0; i < weaponeModels.Length; i++)
+                    {
+                        weaponeModels[i].SetActive(i == gun);
+                    }
+                    break;
                 }
-                break;
-            }
             case 2:
-            {
-                curWeapone = weapone.machinegun;
-                for (int i = 0; i < weaponeModels.Length; i++)
                 {
-                    weaponeModels[i].SetActive(i == gun);
+                    curWeapone = weapone.machinegun;
+                    for (int i = 0; i < weaponeModels.Length; i++)
+                    {
+                        weaponeModels[i].SetActive(i == gun);
+                    }
+                    break;
                 }
-                break;
-            }
             case 3:
-            {
-                curWeapone = weapone.minigun;
-                for (int i = 0; i < weaponeModels.Length; i++)
                 {
-                    weaponeModels[i].SetActive(i == gun);
+                    curWeapone = weapone.minigun;
+                    for (int i = 0; i < weaponeModels.Length; i++)
+                    {
+                        weaponeModels[i].SetActive(i == gun);
+                    }
+                    break;
                 }
-                break;
-            }
-            
+
             default: break;
         }
     }
@@ -167,73 +167,73 @@ public class PlayerWeapon : MonoBehaviour
     private void minigunShoot() // miningun shot
     {
         minigunBarrel.transform.Rotate(Vector3.forward, 15, Space.Self);
-        if(nexttimetofire <= 0)
-       {
+        if (nexttimetofire <= 0)
+        {
 
             nexttimetofire = delays[3];
             GameObject projectile = Instantiate(bullet, barrel.position + (barrel.forward * 2), barrel.rotation);
             projectile.GetComponent<Rigidbody>().velocity = barrel.forward * projectionSpeed;
             muzzleFX.Play();
-       }    
+        }
     }
 
     private void machineGunShoot() // machinegun shot
-    { 
-        if(nexttimetofire <= 0)
-       {
+    {
+        if (nexttimetofire <= 0)
+        {
 
             nexttimetofire = delays[2];
             GameObject projectile = Instantiate(bullet, barrel.position + (barrel.forward * 2), barrel.rotation);
             projectile.GetComponent<Rigidbody>().velocity = barrel.forward * projectionSpeed;
             muzzleFX.Play();
-       }    
+        }
     }
 
     private void burstShoot() // burst shot
     {
-        if(nexttimetofire <= 0)
-       {
-           if(burstshotCount == 3)
-           {
-               nexttimetofire = delays[0];
-               burstshotCount = 0;
-           }
-           else
-           {
-           nexttimetofire = 0.1f;
-           }
+        if (nexttimetofire <= 0)
+        {
+            if (burstshotCount == 3)
+            {
+                nexttimetofire = delays[0];
+                burstshotCount = 0;
+            }
+            else
+            {
+                nexttimetofire = 0.1f;
+            }
 
             GameObject projectile = Instantiate(bullet, barrel.position + (barrel.forward * 2), barrel.rotation);
             projectile.GetComponent<Rigidbody>().velocity = barrel.forward * projectionSpeed;
             muzzleFX.Play();
             burstshotCount++;
-       }    
+        }
     }
 
     private void shotgunShoot() // shotgun shot
     {
-        if(nexttimetofire <= 0)
+        if (nexttimetofire <= 0)
         {
             nexttimetofire = delays[1];
 
             for (int i = 0; i < 8; i++)
-                {
+            {
 
-                    Vector3 direction = barrel.forward;
-                   
-                    Vector3 spread = Vector3.zero;
-                    spread += barrel.up * Random.Range(-1, 1);
-                    spread += barrel.right * Random.Range(-1, 1);
+                Vector3 direction = barrel.forward;
 
-                    direction += spread.normalized * Random.Range(0, 0.15f);
+                Vector3 spread = Vector3.zero;
+                spread += barrel.up * Random.Range(-1, 1);
+                spread += barrel.right * Random.Range(-1, 1);
 
-                    GameObject projectile = Instantiate(bullet, barrel.position + (barrel.forward * 2), 
-                    Quaternion.LookRotation(Vector3.RotateTowards(barrel.forward, direction, 1,0))
-                    );
-                    projectile.GetComponent<Rigidbody>().velocity = direction * projectionSpeed;
-                }
+                direction += spread.normalized * Random.Range(0, 0.15f);
+
+                GameObject projectile = Instantiate(bullet, barrel.position + (barrel.forward * 2),
+                Quaternion.LookRotation(Vector3.RotateTowards(barrel.forward, direction, 1, 0))
+                );
+                projectile.GetComponent<Rigidbody>().velocity = direction * projectionSpeed;
+            }
             muzzleFX.Play();
-        }    
+        }
     }
 
 }

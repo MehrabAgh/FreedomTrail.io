@@ -32,7 +32,11 @@ public class OverGameManage : MonoBehaviour
             
             if(LevelManager.instance.nameLevel == "BonusLevel")
             {
-                LevelManager.instance._fakeBonus = true;
+                LevelManager._isbonusLevel = true;
+            }
+            if (LevelManager.instance.nameLevel == "BonusLevel")
+            {
+                LevelManager._isBossLevel = true;
             }
         }
     }
@@ -53,6 +57,7 @@ public class OverGameManage : MonoBehaviour
     public void Retry()
     {
         SceneManager.LoadScene("SampleScene");
+        LevelManager._isbonusLevel = true;
     }
     private void Update()
     {

@@ -9,13 +9,13 @@ public class LevelManager : MonoBehaviour
     public EnemyManager[] c;
     public List<Transform> Levels;
     public string nameLevel;
-    public Transform levelSubmit,pivStart,pivEnd,BonusLevel;
+    public Transform levelSubmit,pivStart,pivEnd,BonusLevel, BossLevel;
     public int indexLevel;
     public static LevelManager instance;
     public float indexDelayShoot;
     public Slider pathRow;
-    public static bool _isbonusLevel;
-    public bool _fakeBonus;
+    public static bool _isbonusLevel , _isBossLevel;
+
     private void Awake()
     {
         instance = this;
@@ -39,7 +39,18 @@ public class LevelManager : MonoBehaviour
             nameLevel = "Level"+indexLevel;
             PlayerPrefs.SetString("Level", nameLevel);
         }
-        if (indexLevel % 2 == 0 && !_isbonusLevel)
+        if (indexLevel % 5 == 0 && !_isBossLevel)
+        {
+            levelSubmit = Instantiate(BossLevel, transform.position, transform.rotation);
+            nameLevel = "BossLevel";
+            PlayerPrefs.SetString("Level", nameLevel);
+            foreach (var item in ScoreManager.instance.TLevel)
+            {
+                item.text = nameLevel;
+            }
+            _isBossLevel = true;
+        }
+        else if (indexLevel % 2 == 0 && !_isbonusLevel)
         {
             levelSubmit = Instantiate(BonusLevel, transform.position, transform.rotation);
             nameLevel = "BonusLevel";
@@ -48,10 +59,12 @@ public class LevelManager : MonoBehaviour
             {
                 item.text = nameLevel;
             }
+            _isbonusLevel = true;
         }
        
         else
         {
+            _isBossLevel = false;
             _isbonusLevel = false;
             foreach (var item in ScoreManager.instance.TLevel)
             {
@@ -89,19 +102,18 @@ public class LevelManager : MonoBehaviour
         }
     }   
     private void Update()
-    {
-        _isbonusLevel = _fakeBonus;
-        if (nameLevel != "BonusLevel")
+    {       
+        if (nameLevel != "BonusLevel" && nameLevel != "BossLevel")
         {
             EnemyDelayEdit();
         }
+       
         DistancePath();
     }
     public void DistancePath()
     {
         var dis = Vector3.Distance(GameManager.ins.Player.transform.position, pivEnd.transform.position);
         pathRow.value = dis;
-        print(dis);
         if(dis <= 10)
         {
             foreach (EnemyCarTargetController item in GameManager.ins.Enemys)
