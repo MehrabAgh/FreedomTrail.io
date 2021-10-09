@@ -10,7 +10,8 @@ public class CarWaypointMovement : MonoBehaviour
     private Transform[] waypoints;
     private int curWpIndx = 0;
     private float dist = 0.5f;
-    private bool pathFinished = false;
+    public bool pathFinished = false;
+    public bool loopedPath = false;
 
     private void Start()
     {
@@ -46,8 +47,13 @@ public class CarWaypointMovement : MonoBehaviour
         // check if we arrived to waypoint
         if(Mathf.Abs(waypoints[curWpIndx].position.magnitude - carObj.position.magnitude) <= dist)
         // then check if it was the last waypoint
-            if(curWpIndx + 1 >= waypoints.Length)
-                pathFinished = true;
+            if (curWpIndx + 1 >= waypoints.Length)
+            {
+                if (loopedPath)
+                    curWpIndx = 0;
+                else
+                    pathFinished = true;
+            }
             else
                  curWpIndx ++;
 

@@ -11,8 +11,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject spawnFX;
     public GameObject[] enemyPrefabs;
     private bool spawnAllowed;
-    //
-    public static EnemySpawner ES;
+    public static EnemySpawner ES; // instance holder
     public int maxEnemy;
 
     private void Awake()
@@ -22,14 +21,14 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {      
         spawnAllowed = true;
-        Spawn();
-       // StartCoroutine(spawn());
+       // Spawn();
+        StartCoroutine(spawn());
     }
 
     private void Update()
     {
         aliveEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        spawnAllowed = aliveEnemies < 2; // if there's < 2 enemies alive we can spawn new ones
+       // spawnAllowed = aliveEnemies < 2; // if there's < 2 enemies alive we can spawn new ones
     }
     private void Spawn()
     {
@@ -47,14 +46,14 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator spawn()
     {
 
-        while (true)
+        for (int i = 0; i < maxEnemy; i++)
         {
             if (spawnAllowed)
             {
-                print("spawning");
+                //print("spawning");
 
                 // wait for some seconds before spawning new enemies
-                float delay = Random.Range(1, 5);
+                float delay = Random.Range(1, 3);
                 submitSpawnPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
                 yield return new WaitForSeconds(delay);
 

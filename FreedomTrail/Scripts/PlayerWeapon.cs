@@ -12,7 +12,8 @@ public class PlayerWeapon : MonoBehaviour
     public ParticleSystem muzzleFX;
     public RectTransform aim; //cross hair
     private Camera cam; // used for cross hair
-    public float aimDistance = 5;
+    //public float aimDistance = 5;
+    
 
     public enum weapone {rifle, shotgun, machinegun, minigun};
     public weapone curWeapone;
@@ -54,8 +55,19 @@ public class PlayerWeapon : MonoBehaviour
         nexttimetofire -= Time.deltaTime;
         
         //cross hair
-        var aimPos = barrel.position + (barrel.forward * aimDistance);
-        var screenPos = cam.WorldToScreenPoint(aimPos, Camera.MonoOrStereoscopicEye.Mono);
+        Ray ray = new Ray(barrel.position, barrel.forward);
+        RaycastHit hit;
+        Vector3 screenPos;
+        if (Physics.Raycast(ray, out hit))
+        {
+            screenPos = cam.WorldToScreenPoint(hit.point, Camera.MonoOrStereoscopicEye.Mono);
+            
+        }
+        else
+        {
+            var aimPos = barrel.position + (barrel.forward * 50);
+            screenPos = cam.WorldToScreenPoint(aimPos, Camera.MonoOrStereoscopicEye.Mono);
+        }
         aim.position = screenPos;
 
     }

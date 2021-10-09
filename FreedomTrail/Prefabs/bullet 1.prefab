@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3881412917815023730}
   - component: {fileID: 5637459097200762419}
   - component: {fileID: 909294144144057789}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: bullet 1
   m_TagString: AmmoEnemy
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e632b4f14f7c6c144b65864f5e0eb341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 2
+  Damge: 0
 --- !u!54 &909294144144057789
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -137,7 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3997368792192146778}
   - component: {fileID: 8928009854731601434}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

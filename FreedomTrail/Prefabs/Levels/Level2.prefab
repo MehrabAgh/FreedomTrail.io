@@ -372,6 +372,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 0}
+  pathFinished: 0
+  loopedPath: 0
 --- !u!1 &6436834830025180026
 GameObject:
   m_ObjectHideFlags: 0
@@ -2233,7 +2235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8555308780509902041, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 97.4
+      value: 53.6
       objectReference: {fileID: 0}
     - target: {fileID: 8555308780647370034, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2314,6 +2316,14 @@ PrefabInstance:
     - target: {fileID: 8555308782095234439, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
       propertyPath: m_LocalPosition.z
       value: 98
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555308782373677721, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555308782373677721, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 135.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
@@ -6061,6 +6071,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012687408950, guid: 5e4598f3060674e4b9abf4ee47e00197, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 136212934271034938, guid: 5e4598f3060674e4b9abf4ee47e00197, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

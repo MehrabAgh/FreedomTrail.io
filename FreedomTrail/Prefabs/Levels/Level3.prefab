@@ -404,6 +404,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 0}
+  pathFinished: 0
+  loopedPath: 0
 --- !u!1 &8677157689115722674
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,7 +645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8555308780509902041, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 49.8
+      value: 76.4
       objectReference: {fileID: 0}
     - target: {fileID: 8555308780647370034, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
       propertyPath: m_LocalPosition.x
@@ -719,7 +721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8555308782095234439, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 77.3
+      value: 138.3
       objectReference: {fileID: 0}
     - target: {fileID: 8555308782373677721, guid: a89060ccc5069b74486b7b9e44fe5aab, type: 3}
       propertyPath: m_LocalPosition.z

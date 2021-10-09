@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyCarTargetController : MonoBehaviour
 {
 
     private CarAIControl car;
+    private Transform player;
+    public Transform alterTarget;
 
     private void Start()
     {
@@ -21,12 +21,26 @@ public class EnemyCarTargetController : MonoBehaviour
             car.m_Target = CarWaypointMovement.rightTarget;
         }
         */
-        
-        car.m_Target = GameObject.Find("Player Car").transform;
+
+        player = GameObject.Find("Player Car").transform;
+       
+        car.m_Target = player;
     }
 
     void Update()
     {
+        // if we are going towards the player
+        if (Vector3.Angle(transform.forward, player.forward) < 120)
+        {
+            car.m_Target = player;
+            return;
+        }
+            
+
         
+        alterTarget.position = player.position + ((transform.position - player.position).normalized * -5);
+        car.m_Target = alterTarget;
+
+        print(Vector3.Angle(transform.forward, car.m_Target.forward));
     }
 }

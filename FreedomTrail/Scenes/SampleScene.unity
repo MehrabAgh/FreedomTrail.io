@@ -2363,6 +2363,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 0}
+  pathFinished: 0
+  loopedPath: 0
 --- !u!1 &168721688
 GameObject:
   m_ObjectHideFlags: 0
@@ -4570,6 +4572,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 0}
+  pathFinished: 0
+  loopedPath: 0
 --- !u!1 &321058097
 GameObject:
   m_ObjectHideFlags: 0
@@ -6699,6 +6703,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 0}
+  pathFinished: 0
+  loopedPath: 0
 --- !u!4 &603459524 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3834919377137789206, guid: 10c7c72f6a538074db68b9b6f246d0c4, type: 3}
@@ -6839,6 +6845,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 0}
+  pathFinished: 0
+  loopedPath: 0
 --- !u!1 &633961757
 GameObject:
   m_ObjectHideFlags: 0
@@ -10008,6 +10016,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 0}
+  pathFinished: 0
+  loopedPath: 0
 --- !u!1 &935429220
 GameObject:
   m_ObjectHideFlags: 0
@@ -11994,6 +12004,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 0}
+  pathFinished: 0
+  loopedPath: 0
 --- !u!1 &1115302289
 GameObject:
   m_ObjectHideFlags: 0
@@ -13540,6 +13552,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 0}
+  pathFinished: 0
+  loopedPath: 0
 --- !u!1 &1310195720
 GameObject:
   m_ObjectHideFlags: 0
@@ -14955,6 +14969,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 0}
+  pathFinished: 0
+  loopedPath: 0
 --- !u!1 &1505552972
 GameObject:
   m_ObjectHideFlags: 0
@@ -17371,6 +17387,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7382182659093919667}
     - target: {fileID: 8459799116700514937, guid: e833d458df54d7f4dac17b4ed46bbfce, type: 3}
+      propertyPath: maxHealth
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459799116700514937, guid: e833d458df54d7f4dac17b4ed46bbfce, type: 3}
       propertyPath: PivotCamera
       value: 
       objectReference: {fileID: 2111669638}
@@ -19753,7 +19773,7 @@ GameObject:
   - component: {fileID: 1854688632}
   m_Layer: 5
   m_Name: cross hair
-  m_TagString: crosshair
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19775,7 +19795,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1854688632
 MonoBehaviour:
@@ -20349,6 +20369,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 0}
+  pathFinished: 0
+  loopedPath: 0
 --- !u!1 &1960083572
 GameObject:
   m_ObjectHideFlags: 0
@@ -21763,6 +21785,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 0}
+  pathFinished: 0
+  loopedPath: 0
 --- !u!1 &2098152191
 GameObject:
   m_ObjectHideFlags: 0

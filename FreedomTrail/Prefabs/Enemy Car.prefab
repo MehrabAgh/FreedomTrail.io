@@ -1359,7 +1359,7 @@ MonoBehaviour:
   heliGun: {fileID: 0}
   PivGun:
   - {fileID: 8081216464570065609}
-  Ammo: {fileID: 6867022844830627100, guid: b298b88af93d6814f9fd8a02d83c745b, type: 3}
+  Ammo: {fileID: 3881412917815023731, guid: f201a64ce7477ae4cab5d9997db815f6, type: 3}
   Ammo2: {fileID: 0}
   Power: 8000
   DelayStart: 0.5
@@ -1959,7 +1959,7 @@ MonoBehaviour:
   m_MaxHandbrakeTorque: 100000000
   m_Downforce: 100
   m_SpeedType: 0
-  m_Topspeed: 60
+  m_Topspeed: 110
   m_RevRangeBoundary: 1
   m_SlipLimit: 0.4
   m_BrakeTorque: 20000
@@ -2057,6 +2057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c32b37b4e7fbc34aa60a5f1209b36ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alterTarget: {fileID: 7966284400396797058}
 --- !u!1 &7966284400396900576
 GameObject:
   m_ObjectHideFlags: 0
