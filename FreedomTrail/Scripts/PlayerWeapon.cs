@@ -70,7 +70,7 @@ public class PlayerWeapon : MonoBehaviour
         }
         else
         {
-            aimDistance = 50;//Mathf.Lerp(aimDistance, 50, Time.time); // 50 for a default sky distance
+            aimDistance = 35;//Mathf.Lerp(aimDistance, 50, Time.time); // 50 for a default sky distance
         }
         aimPos = barrel.position + (barrel.forward * aimDistance);
         screenPos = cam.WorldToScreenPoint(aimPos, Camera.MonoOrStereoscopicEye.Mono);

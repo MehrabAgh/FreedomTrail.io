@@ -4,7 +4,8 @@ public class EnemyCarTargetController : MonoBehaviour
 {
 
     private CarAIControl car;
-    private Transform player;
+    [HideInInspector]
+    public Transform player;
     public Transform alterTarget;
 
     private void Start()

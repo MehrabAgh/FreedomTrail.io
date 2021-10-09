@@ -12,14 +12,17 @@ public class HeliMovement : MonoBehaviour
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
-        offset = transform.position - target.position;
-       // offset = new Vector3(0,height,0);
+        //offset = target.forward * -distance;
+        offset += new Vector3(0 ,height, 0);
+
+        //transform.position = offset;
     }
 
     private void Update()
     {
 
-        transform.position = Vector3.Lerp(transform.position, target.position + offset, Time.deltaTime* speedMove);
+       // transform.position = Vector3.Lerp(transform.position, target.position + offset + target.forward * -distance, 0.3f * Time.deltaTime);
+       // transform.position = Vector3.MoveTowards(transform.position, target.position + offset + target.forward  * -distance, Time.deltaTime * speedMove);
         
         transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(
             transform.forward, target.position - transform.position, speedRotate * Time.deltaTime, 0.0f
