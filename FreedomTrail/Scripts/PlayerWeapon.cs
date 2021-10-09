@@ -13,7 +13,7 @@ public class PlayerWeapon : MonoBehaviour
     public RectTransform aim; //cross hair
     private Camera cam; // used for cross hair
     private float aimDistance;
-    public float aimFocus = 3; // focus speed
+    private float aimFocus = 300; // focus speed
                                //public float aimDistance = 5;
 
 
